@@ -1,73 +1,43 @@
-<!-- $theme: gaia -->
+---
+marp: true
+paginate: true
+class: lead
+---
+# Flutter における FFI
+---
+# FFI ？
+---
+<h1>
+  <span style="color:red;">F</span>oreign <span style="color:red">f</span>unction <span style="color:red">i</span>nterface</span>
+</h1>
 
-Flutter における FFI
-===
+<br>
+
+#####  今回は C++/C の呼び出しの話
+---
+# 話すこと
+---
+<h2>
+○ Dart, Flutter で FFI どうやるか
+
+○ (Flutter の) FFI は何が難しいか
+</h2>
 
 ---
+# 自己紹介
+---
+# サーバ
 
-<span style="font-size:75px;">FFI </span> ？
-===
+<br>
+
+# オセロ
+---
+![center](./images/architecture.png)
 
 ---
-
-<br>
-<br>
-<br>
-<br>
-
-<b><div style="text-align:center; font-size:60px;"><span style="color:red;">F</span>oreign <span style="color:red">f</span>unction <span style="color:red">i</span>nterface</div></b>
-
-<br>
-<br>
-<div style="text-align:center">  今回は C++/C の呼び出しの話 </div>
-
+# 各言語の C 呼び出し
 ---
-
-話すこと
-===
-
----
-
-<br>
-<br>
-
-<div style="font-size:50px;"><b>
-  
-○ <span style="font-size:65px;">Dart, Flutter</span> で <span style="font-size:65px;">FFI</span> ってどうやるの
-
-○ <span style="font-size:65px;">Flutter</span> の <span style="font-size:65px;">FFI</span> って何が難しいの
-
-</b></div>
-
----
-
-自己紹介
-===
-
----
-
-###### プロフ
-<br>
-<br>
-
-- <span style="font-size:50px;"> サーバサイド </span>
-<br>
-- <span style="font-size:50px;"> オセロ </span>
-
----
-
-###### 趣味で作ってるモノ
-![80% center](./images/architecture.png)
-
----
-
-各言語の C 呼び出し
-===
-
----
-
-###### 代表的なもの
-
+#### 代表的なもの
 | 言語 | 実装方法 |
 | :-----: | :-----: |
 |  C++  | <div style="text-align:left">簡単に呼べる。`extern "C"` で C++ の名前マングリングを無効にできる。</div>|
@@ -80,14 +50,9 @@ Flutter における FFI
 | Swift | <div style="text-align:left">[そのままいける](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/using_imported_c_functions_in_swift)し、[カスタム](https://developer.apple.com/documentation/swift/objective-c_and_c_code_customization/customizing_your_c_code_for_swift)も可能 </div> |
 
 ---
+### 例: Go -> C
+<div style="font-size:40px;">
 
-###### サンプル
-
-Go -> C
-===
-
-<div style="font-size:30px;">
-  
 ```go
 package main
 
@@ -110,47 +75,28 @@ func main() {
 
 ---
 
-<span style="font-size:75px;">Dart</span> は？
-===
-
+# Dart は？
 ---
+## [Google I/O'19](https://www.youtube.com/watch?v=J5DQRPRBiFI) でも言及あり
+![center](./images/dart_session_io19.png)
+<b style="text-align:center">
 
-[Google I/O'19](https://www.youtube.com/watch?v=J5DQRPRBiFI) でも言及あり
-===
-
-![130% center](./images/dart_session_io19.png)
-
-<b>
-  
 > We are working on a new foreign function interface.
 > This should help you reuse existing C and C++ code,
 > which is important for some critical stuff
 </b>
 
 ---
+# ① Native Extension
 
-<br>
-<br>
-<br>
-<div style="font-size:60px;"><b>
-  
-① Native Extension
-
-② dart : ffi
-
-</b></div>
-
+# ② dart : ffi
 ---
-
-① Native Extension
-===
-
+# ① Native Extension
 ---
+#### C++ 側  
+<div style="font-size:30px;">
 
-<div style="font-size:21px;">
-C++ 側  
-
-```cc
+```cpp
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -186,13 +132,9 @@ Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_sco
 </div>
 
 ---
-
-<br>
-<br>
-<br>
-<span style="font-size:25px;">Dart 側</span>  
+#### Dart 側
 <div style="font-size:35px;">
-  
+
 ```dart
 library sample_hello;
 import 'dart-ext:sample_hello';
@@ -204,31 +146,19 @@ void hello() native "Hello";
 <span style="font-size:30px;">参考: [dart-lang sample_extension](https://github.com/dart-lang/sdk/tree/master/samples/sample_extension)</span>
 
 ---
-
-② dart:ffi
-===
-
+# ② dart:ffi
 ---
-
-<br>
-<br>
-<br>
-<br>
-
 > The extension mechanism discussed in this page is for deep integration of the VM.
 > If you just need to call existing code written in C or C++, see [C & C++ interop using FFI](https://dart.dev/server/c-interop).
 
 <br>
 <div style="font-size:25px;text-align:right;">
-  
+
 引用元: [Native extensions for the standalone Dart VM](https://dart.dev/server/c-interop-native-extensions)
 </div>
 
 ---
-
-<br>
-<br>
-<div style="font-size:32px;">
+<div style="font-size:35px;">
 
 ```dart
 import "dart:ffi" as ffi;
@@ -245,20 +175,14 @@ void main() {
 ```
 </div>
 <div style="font-size:30px;">
-  
+
 [https://github.com/sensuikan1973/Dart_FFI_Hello_World](https://github.com/sensuikan1973/Dart_FFI_Hello_World)
 </div>
 
 ---
-
-さて、<span style="font-size:75px;">Flutter</span> では？
-===
-
+# さて、Flutter では？
 ---
-
-<span style="font-size:75px;">dart : ffi</span> のサポートが進んでいる
-===
-
+# dart : ffi のサポートが進んでいる
 ---
 
 Dart VM FFI VISION について
