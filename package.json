@@ -5,7 +5,7 @@
     "author": "sensuikan1973",
     "scripts": {
         "start": "marp --theme sensuikan1973_theme.css --html --server .",
-        "build": "marp --theme sensuikan1973_theme.css --html --pdf --allow-local-files --title 'Flutter における FFI' slide.md -o ./slide.pdf"
+        "build": "marp --theme sensuikan1973_theme.css --html --pdf --allow-local-files --title 'Flutter_FFI' slide.md -o ./slide.pdf"
     },
     "dependencies": {
         "@marp-team/marp-cli": "0.11.3"

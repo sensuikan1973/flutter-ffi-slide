@@ -1,9 +1,15 @@
 # Flutter FFI Slide
-at Flutter Meetup Tokyo
+At Flutter Meetup Tokyo
 
 # Usage
+## development
 ```sh
 yarn install
+yarn start
+```
+
+## presentation
+```sh
 yarn build
 pdfpc slide.pdf
 ```
