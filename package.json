@@ -4,8 +4,8 @@
     "main": "index.js",
     "author": "sensuikan1973",
     "scripts": {
-        "start": "marp --html --server .",
-        "build": "marp --html --pdf --allow-local-files --title 'Flutter における FFI' slide.md -o ./slide.pdf"
+        "start": "marp --theme sensuikan1973_theme.css --html --server .",
+        "build": "marp --theme sensuikan1973_theme.css --html --pdf --allow-local-files --title 'Flutter における FFI' slide.md -o ./slide.pdf"
     },
     "dependencies": {
         "@marp-team/marp-cli": "0.11.3"
