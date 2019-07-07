@@ -1,0 +1,3 @@
+[build]
+  publish = "dist"
+  command = "yarn install && CHROME_PATH=$(node .puppeteer.js) yarn build"

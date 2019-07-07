@@ -4,10 +4,13 @@
     "main": "index.js",
     "author": "sensuikan1973",
     "scripts": {
-        "start": "marp --theme sensuikan1973_theme.css --html --server .",
-        "build": "marp --theme sensuikan1973_theme.css --html --pdf --allow-local-files --title 'Flutter_FFI' slide.md -o ./slide.pdf"
+        "start": "./scripts/start.sh",
+        "build": "./scripts/build.sh"
     },
     "dependencies": {
-        "@marp-team/marp-cli": "0.11.3"
+        "@marp-team/marp-cli": "0.11.3",
+        "cpx": "1.5.0",
+        "puppeteer": "1.18.1",
+        "rimraf": "2.6.3"
     }
 }

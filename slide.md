@@ -26,13 +26,19 @@ class: lead
 ---
 # 自己紹介
 ---
+
+![bg right 50%](./assets/icon.jpg)
+
 # サーバ
 
 <br>
 
 # オセロ
+
 ---
-![center](./images/architecture.png)
+# オセロには常に C が必要
+---
+![center](./assets/architecture.png)
 
 ---
 # 各言語の C 呼び出し
@@ -78,7 +84,7 @@ func main() {
 # Dart は？
 ---
 ## [Google I/O'19](https://www.youtube.com/watch?v=J5DQRPRBiFI) でも言及あり
-![center](./images/dart_session_io19.png)
+![center](./assets/dart_session_io19.png)
 <b style="text-align:center">
 
 > We are working on a new foreign function interface.
@@ -93,7 +99,7 @@ func main() {
 ---
 # ① Native Extension
 ---
-#### C++ 側  
+#### C++ 側
 <div style="font-size:30px;">
 
 ```cpp
