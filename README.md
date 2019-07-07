@@ -4,7 +4,7 @@
 At Flutter Meetup Tokyo
 
 # Hosting
-https://flutter-ffi-slide-sensuikan1973.netlify.com/
+http://slides.done-sensuikan1973.com/
 
 # Usage
 ## development

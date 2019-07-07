@@ -6,8 +6,8 @@ PDF_OUTPUT='dist/flutter_ffi_slide_sensuikan1973.pdf'
 # See: https://github.com/marp-team/marp-cli#metadata
 OG_TITLE='FlutterにおけるFFI'
 OG_DESCRIPTION="「FFIにおけるFlutter」 at Flutter Meetup Tokyo"
-OG_URL='https://flutter-ffi-slide-sensuikan1973.netlify.com/'
-OG_IMAGE='https://pbs.twimg.com/profile_images/1036981510543355904/oqyXbAEg_400x400.jpg'
+OG_URL='http://slides.done-sensuikan1973.com/'
+OG_IMAGE='/dist/assets/icon.jpg'
 
 # 出力先をクリア
 rimraf 'dist'
