@@ -5,10 +5,12 @@
     "author": "sensuikan1973",
     "scripts": {
         "start": "./scripts/start.sh",
-        "build_html": "./scripts/build_html.sh",
-        "build_pdf": "./scripts/build_pdf.sh"
+        "build": "./scripts/build.sh"
     },
     "dependencies": {
-        "@marp-team/marp-cli": "0.11.3"
+        "@marp-team/marp-cli": "0.11.3",
+        "cpx": "1.5.0",
+        "puppeteer": "1.18.1",
+        "rimraf": "2.6.3"
     }
 }
