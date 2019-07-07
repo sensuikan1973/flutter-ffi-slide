@@ -2,12 +2,12 @@ THEME='themes/sensuikan1973_theme.css'
 SRC='slide.md'
 HTML_OUTPUT='dist/index.html'
 PDF_OUTPUT='dist/flutter_ffi_slide_sensuikan1973.pdf'
+HOST='https://flutter-ffi-slide.done-sensuikan1973.com'
 
 # See: https://github.com/marp-team/marp-cli#metadata
 OG_TITLE='FlutterにおけるFFI'
 OG_DESCRIPTION="「FFIにおけるFlutter」 at Flutter Meetup Tokyo"
-OG_URL='http://slides.done-sensuikan1973.com/'
-OG_IMAGE='http://slides.done-sensuikan1973.com/assets/icon.jpg'
+OG_IMAGE="${HOST}/assets/icon.jpg"
 
 # 出力先をクリア
 rimraf 'dist'
@@ -28,5 +28,5 @@ marp --html $SRC --pdf --allow-local-files --output $PDF_OUTPUT \
 --theme $THEME \
 --title $OG_TITLE \
 --description $OG_DESCRIPTION \
---url $OG_URL \
+--url $HOST \
 --og-image $OG_IMAGE
