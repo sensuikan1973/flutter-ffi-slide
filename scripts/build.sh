@@ -6,7 +6,7 @@ HOST='https://flutter-ffi-slide.done-sensuikan1973.com'
 
 # See: https://github.com/marp-team/marp-cli#metadata
 OG_TITLE='FlutterにおけるFFI'
-OG_DESCRIPTION="「FFIにおけるFlutter」 at Flutter Meetup Tokyo"
+OG_DESCRIPTION="「FFIにおけるFlutter」at Flutter Meetup Tokyo"
 OG_IMAGE="${HOST}/assets/icon.jpg"
 
 # 出力先をクリア
