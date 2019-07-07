@@ -13,7 +13,7 @@ yarn install
 yarn start
 ```
 
-## presentation
+## presentation without hosting
 ```sh
 yarn build
 pdfpc slide.pdf
@@ -23,3 +23,5 @@ pdfpc slide.pdf
 * [Marp](https://marpit.marp.app/)
     * [marp-cli](https://github.com/marp-team/marp-cli)
 * [pdfpc](https://github.com/pdfpc/pdfpc)
+* [Netlify](https://www.netlify.com/)
+  * [custom domains](https://www.netlify.com/docs/custom-domains/)
