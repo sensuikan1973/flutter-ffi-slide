@@ -13,7 +13,9 @@ OG_IMAGE="${HOST}/assets/icon.jpg"
 rimraf 'dist'
 
 # アセットをコピー
-cpx 'assets/**/*' 'dist/assets'
+cpx 'assets/**/*.png' 'dist/assets'
+cpx 'assets/**/*.jpg' 'dist/assets'
+cpx 'assets/*.ico' 'dist/'
 
 # HTML
 marp --html $SRC --output $HTML_OUTPUT \
