@@ -4,8 +4,9 @@
     "main": "index.js",
     "author": "sensuikan1973",
     "scripts": {
-        "start": "marp --theme sensuikan1973_theme.css --html --server .",
-        "build": "marp --theme sensuikan1973_theme.css --html --pdf --allow-local-files --title 'Flutter_FFI' slide.md -o ./slide.pdf"
+        "start": "./scripts/start.sh",
+        "build_html": "./scripts/build_html.sh",
+        "build_pdf": "./scripts/build_pdf.sh"
     },
     "dependencies": {
         "@marp-team/marp-cli": "0.11.3"
