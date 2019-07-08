@@ -11,6 +11,9 @@ https://flutter-ffi-slide.done-sensuikan1973.com
 ## PDF
 https://flutter-ffi-slide.done-sensuikan1973.com/slide.pdf
 
+## GitPitch
+https://gitpitch.com/sensuikan1973/flutter-ffi-slide
+
 # Usage
 ## development
 ```sh

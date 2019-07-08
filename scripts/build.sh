@@ -1,5 +1,5 @@
 THEME='themes/sensuikan1973_theme.css'
-SRC='PITCHME.md'
+SRC='MARP.md'
 OUTPUT='dist/index.html'
 HOST='https://flutter-ffi-slide.done-sensuikan1973.com'
 

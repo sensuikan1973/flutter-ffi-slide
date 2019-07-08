@@ -1,4 +1,12 @@
 ---
+marp: true
+paginate: true
+class: lead
+
+# VSCode の Marp 拡張はまだカスタム CSS をサポートしていない。ので、一時的に gaia テーマをあてる用にコメントを入れておく。
+# See: https://github.com/marp-team/marp-vscode/issues/39
+theme: gaia
+---
 # Flutter における FFI
 ---
 # FFI ？
