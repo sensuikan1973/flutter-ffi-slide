@@ -53,8 +53,7 @@ theme: gaia
 #### 代表的なもの
 | 言語 | 実装方法 |
 | :-----: | :-----: |
-|  C++  | <div style="text-align:left">簡単に呼べる。`extern "C"` で C++ の名前マングリングを無効にできる。</div>|
-|  Go  | <div style="text-align:left">[cgo](https://golang.org/cmd/cgo/) を使う</div> |
+|  C++  | <div style="text-align:left">`extern "C"` で C++ の名前マングリンsグを無効にできる。</div>|
 | Java | <div style="text-align:left">[JNI](https://docs.oracle.com/javase/jp/8/docs/technotes/guides/jni/spec/jniTOC.html) や [JNA](https://github.com/java-native-access/jna), [SWIG](http://www.swig.org/) を使う</div> |
 | Python | <div style="text-align:left">[ctypes](https://docs.python.org/3/library/ctypes.html) や [cffi](https://cffi.readthedocs.io/en/latest/) を使う</div> |
 | Rust | <div style="text-align:left">[extern キーワード](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html#using-extern-functions-to-call-external-code)で容易に呼べる</div>|
