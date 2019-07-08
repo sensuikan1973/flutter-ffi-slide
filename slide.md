@@ -5,7 +5,7 @@ class: lead
 
 # VSCode の Marp 拡張はまだカスタム CSS をサポートしていない。ので、一時的に gaia テーマをあてる用にコメントを入れておく。
 # See: https://github.com/marp-team/marp-vscode/issues/39
-# theme: gaia
+theme: gaia
 ---
 # Flutter における FFI
 ---
@@ -43,6 +43,9 @@ class: lead
 # オセロには常に C が必要
 ---
 ![center](./assets/architecture.png)
+
+---
+![center](./assets/architecture_marked.png)
 
 ---
 # 各言語の C 呼び出し
