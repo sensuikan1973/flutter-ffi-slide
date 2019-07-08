@@ -236,4 +236,5 @@ Flutter における FFI の展望
   - [Writing custom platform-specific code](https://flutter.io/platform-channels/)
   - [Custom Flutter Engine Embedders](https://github.com/flutter/flutter/wiki/Custom-Flutter-Engine-Embedders)
 
+- [sensuikan1973/flutter-ffi-slide](https://github.com/sensuikan1973/flutter-ffi-slide)
 </div>
