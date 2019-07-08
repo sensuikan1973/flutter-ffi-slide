@@ -1,7 +1,7 @@
 THEME='themes/sensuikan1973_theme.css'
 SRC='slide.md'
 HTML_OUTPUT='dist/index.html'
-PDF_OUTPUT='dist/flutter_ffi_slide_sensuikan1973.pdf'
+PDF_OUTPUT='output/flutter_ffi_slide_sensuikan1973.pdf'
 HOST='https://flutter-ffi-slide.done-sensuikan1973.com'
 
 # See: https://github.com/marp-team/marp-cli#metadata
