@@ -12,6 +12,7 @@ https://flutter-ffi-slide.done-sensuikan1973.com
 https://flutter-ffi-slide.done-sensuikan1973.com/slide.pdf
 
 ## GitPitch
+This link is invalid.  
 https://gitpitch.com/sensuikan1973/flutter-ffi-slide
 
 # Usage
