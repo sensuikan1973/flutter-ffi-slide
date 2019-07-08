@@ -4,7 +4,12 @@
 At [Flutter Meetup Tokyo #10](https://flutter-jp.connpass.com/event/134921/)
 
 # Hosting
-https://flutter-ffi-slide.done-sensuikan1973.com
+## HTML
+https://flutter-ffi-slide.done-sensuikan1973.com  
+Saddly, This site is heavy on smart phone... **See on PC**.
+
+## PDF
+https://flutter-ffi-slide.done-sensuikan1973.com/slide.pdf
 
 # Usage
 ## development
