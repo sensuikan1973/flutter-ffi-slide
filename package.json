@@ -5,6 +5,7 @@
     "author": "sensuikan1973",
     "scripts": {
         "start": "./scripts/start.sh",
+        "pdf": "./scripts/pdf.sh",
         "build": "./scripts/build.sh"
     },
     "dependencies": {
