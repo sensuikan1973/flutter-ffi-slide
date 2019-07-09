@@ -197,18 +197,75 @@ void main() {
 ![center](./assets/flutter_support_c_cpp.png)
 
 ---
-# dart : ffi のサポートが進んでいる
+# たくさんの 👍 の思いは？
+---
+# ① 既存ソフトをより統合しやすくしてほしい
+---
+<!-- _class: default -->
+<br>
+<br>
+
+# ◯ 大量のグルーコードを書きたくない
+
+<br>
+<br>
+
+# ◯ オーバーヘッドがある
+---
+# SQLite
+
+# Realm
+
+# OpenCV
+
+# crypto, ssh ... libraries
+などが例として挙げられている
+
+---
+# ② 大量のデータを Dart に出し入れする手段がほしい
+---
+# どうするか？
+---
+# ① Native Exstention でサポートできるようにするのは？
+---
+# 😣
+---
+<!-- _class: default -->
+<br>
+
+# ◯ Dart VM C API に多くの依存関係を持ち込むのは望ましくない
+
+<br>
+
+# ◯ Dart VM C API はまだ若く、甚大なリファクタリングを要してしまう
+---
+# ② C++ でメソッドチャンネルを提供するのは？
+---
+# 😣
+---
+# メソッドチャンネルがオーバーヘッド高いので、目的に合わない
+---
+# Flutter チームが採った方法は？
+---
+# dart : ffi 👍
 ---
 
-Dart VM FFI VISION について
+![center](./assets/flutter_ffi_sqlite_sample.png)
+
+---
+
+# 2.4 にて Preview 版提供開始 !
+
+<br>
+
+#### (Flutter/Android での試験的サポートも始まっている)
+---
+
+![w:1000](./assets/dart_ffi_architecture.svg)
 
 ---
 
 そもそも FFI の実装て何が難しいの？
-
----
-
-Android では dart:ffi がすでに使える
 
 ---
 
