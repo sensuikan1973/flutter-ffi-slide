@@ -21,7 +21,7 @@ cpx 'assets/*.ico' 'dist/'
 # lang 関連を設定すればいけそうな雰囲気あったが無理だった。残念。
 cpx 'slide.pdf' 'dist/'
 
-marp --html $SRC --output $OUTPUT \
+marp --template bespoke --html $SRC --output $OUTPUT \
 --theme $THEME \
 --title $OG_TITLE \
 --description "$OG_DESCRIPTION" \
