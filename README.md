@@ -4,18 +4,16 @@
 At [Flutter Meetup Tokyo #10](https://flutter-jp.connpass.com/event/134921/)
 
 # Hosting
+
 ## HTML
 https://flutter-ffi-slide.done-sensuikan1973.com  
-**See on PC**. Saddly, This site is heavy on smart phone...
+**See on PC**. Saddly, This site may be heavy on old smart phone...
 
 ## PDF
 https://flutter-ffi-slide.done-sensuikan1973.com/slide.pdf
 
-## GitPitch
-This link is invalid.  
-https://gitpitch.com/sensuikan1973/flutter-ffi-slide
-
 # Usage
+
 ## development
 ```sh
 yarn install
