@@ -234,6 +234,7 @@ void main() {
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
 # ① 既存ソフトをより統合しやすくしてほしい
 ---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
 <!-- _class: default -->
 <br>
 <br>
@@ -289,15 +290,13 @@ void main() {
 # 名前ベースの API
 
 ```
+// dart-lang/sdk/runtime/include/dart_api.h より引用
 DART_EXPORT DART_WARN_UNUSED_RESULT Dart_Handle
 Dart_SetField(Dart_Handle container, Dart_Handle name, Dart_Handle value);
 ```
 
 #### 👉 AOT に不親切
 #### 👉 名前解決がキャッシュされない
-
-[dart-lang/sdk/runtime/include/dart_api.h](https://github.com/dart-lang/sdk/blob/0425997b3167d6d227f337ff85b6fab8744a157f/runtime/include/dart_api.h#L2502) より引用
-
 ---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
 <!-- _class: default -->
