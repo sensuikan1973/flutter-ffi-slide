@@ -100,6 +100,13 @@ func main() {
 ---
 # こっから本題
 ---
+# ○ <span style="color:green;">利用者目線の</span>
+# ○ <span style="color:purple;">提供者目線の</span>
+
+<br>
+
+## Flutter/Dart における FFI
+---
 ## <span style="color:green;">利用者目線の</span> Flutter/Dart における FFI
 ---
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
