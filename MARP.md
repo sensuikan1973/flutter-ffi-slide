@@ -359,7 +359,7 @@ void isEmailAddress(Dart_NativeArguments arguments)
 # Flutter/Dart の FFI 実装の難しさに触れないと！
 ---
 ## <span style="color:purple;">提供者目線の</span> Flutter/Dart における FFI
-の話を時間の限りして終わります
+の続きをして終わります
 
 ---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
