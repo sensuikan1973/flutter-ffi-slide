@@ -390,5 +390,5 @@ void isEmailAddress(Dart_NativeArguments arguments)
 </div>
 
 ---
-## 設計とか悩みとか話し合えると喜びます
+## 設計の悩みとか話し合えると喜びます
 ![center w:700](./assets/architecture.png)
