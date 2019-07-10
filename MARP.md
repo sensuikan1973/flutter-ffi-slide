@@ -21,17 +21,12 @@ theme: gaia
 ---
 # 話すこと
 ---
-<!-- _class: default -->
-<br>
-<br>
-<br>
-
-## ○ <span style="color:green;">利用者目線の</span> Flutter/Dart における FFI
+# ○ <span style="color:green;">利用者目線の</span>
+# ○ <span style="color:purple;">提供者目線の</span>
 
 <br>
-<br>
 
-## ○ <span style="color:purple;">提供者目線の</span> Flutter/Dart における FFI
+## Flutter/Dart における FFI
 ---
 # 自己紹介
 ---
@@ -357,15 +352,14 @@ void isEmailAddress(Dart_NativeArguments arguments)
 ---
 # 意欲的な方は、<br>ぜひ [dart:ffi のプレビュー版 FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
 ---
-# おわり？
+# ありがとうございました ？
 ---
-# 🙅
-
+# ✋
 ---
-# Flutter/Dart の FFI 実装の難しさに触れてみたい
+# Flutter/Dart の FFI 実装の難しさに触れないと！
 ---
 ## <span style="color:purple;">提供者目線の</span> Flutter/Dart における FFI
-の話を時間の限りします
+の話を時間の限りして終わります
 
 ---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
@@ -396,3 +390,7 @@ void isEmailAddress(Dart_NativeArguments arguments)
 - [sensuikan1973/flutter-ffi-slide](https://github.com/sensuikan1973/flutter-ffi-slide)
 - [sensuikan1973/Dart_FFI_Hello_World](https://github.com/sensuikan1973/Dart_FFI_Hello_World)
 </div>
+
+---
+## 設計とか悩みとか話し合えると喜びます
+![center w:700](./assets/architecture.png)
