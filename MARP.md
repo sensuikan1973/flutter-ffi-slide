@@ -230,7 +230,10 @@ void main() {
 などが具体例として挙げられている
 
 ---
-# ② 大量のデータを Dart に出し入れする手段がほしい
+# ② 大量のデータを効率よく出し入れしたい
+---
+## なお、Dart 2.4 から [TransferableTypedData](https://api.dartlang.org/stable/2.4.0/dart-isolate/TransferableTypedData-class.html)  が使用できるようになったので、ある程度はそれで間に合いそう
+
 ---
 # どうするか？
 ---
