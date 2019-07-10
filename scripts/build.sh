@@ -14,6 +14,7 @@ rimraf 'dist'
 # アセットをコピー
 cpx 'assets/**/*.png' 'dist/assets'
 cpx 'assets/**/*.jpg' 'dist/assets'
+cpx 'assets/**/*.svg' 'dist/assets'
 cpx 'assets/*.ico' 'dist/'
 
 # NOTE: ローカルで作らないと文字化けしちゃうので、こうしてる。

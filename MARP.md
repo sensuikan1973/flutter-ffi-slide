@@ -22,7 +22,7 @@ theme: gaia
 # 話すこと
 ---
 <h2>
-○ Dart, Flutter で FFI どうやるか
+○ Flutter/Dart で FFI どうやるか
 
 ○ (Flutter の) FFI は何が難しいか
 </h2>
@@ -31,19 +31,20 @@ theme: gaia
 # 自己紹介
 ---
 
-![bg right 50%](./assets/icon.jpg)
-
-# サーバ
-
-<br>
-
-# オセロ
+## しみず なおき
+![w:300](./assets/icon.jpg)
 
 ---
-# オセロには常に C が必要
+
+![w:800](./assets/othello.jpg)
+
+---
+# お家で作ってるモノ
 ---
 ![center](./assets/architecture.png)
 
+---
+# オセロには常に C が必要
 ---
 ![center](./assets/architecture_marked.png)
 
@@ -99,7 +100,14 @@ func main() {
 </b>
 
 ---
+<!-- _class: default -->
+<br>
+<br>
+
 # ① Native Extension
+
+<br>
+<br>
 
 # ② dart : ffi
 ---
@@ -194,18 +202,99 @@ void main() {
 ---
 # さて、Flutter では？
 ---
-# dart : ffi のサポートが進んでいる
+![center](./assets/flutter_support_c_cpp.png)
+
+---
+# たくさんの 👍 の思いは？
+---
+# ① 既存ソフトをより統合しやすくしてほしい
+---
+<!-- _class: default -->
+<br>
+<br>
+
+# ◯ 大量のグルーコードがつらい
+
+<br>
+<br>
+
+# ◯ 低オーバーヘッドがいい
+---
+# SQLite
+
+# Realm
+
+# OpenCV
+
+# crypto, ssh ... libraries
+などが具体例として挙げられている
+
+---
+# ② 大量のデータを Dart に出し入れする手段がほしい
+---
+# どうするか？
+---
+# ① C++ でメソッドチャンネルを提供する？
+---
+# 😣
+---
+# メソッドチャンネルがオーバーヘッド高いので、目的に合わない
+---
+# ② Native Exstention でサポートできるようにする？
+---
+# 😣
+---
+<!-- _class: default -->
+
+# 【 理由 1 】
+# 名前ベースの API
+
+```
+DART_EXPORT DART_WARN_UNUSED_RESULT Dart_Handle
+Dart_SetField(Dart_Handle container, Dart_Handle name, Dart_Handle value);
+```
+
+#### 👉 AOT に不親切
+#### 👉 名前解決がキャッシュされない
+
+[dart-lang/sdk/runtime/include/dart_api.h](https://github.com/dart-lang/sdk/blob/0425997b3167d6d227f337ff85b6fab8744a157f/runtime/include/dart_api.h#L2502) より引用
+
+---
+<!-- _class: default -->
+# 【 理由 2 】
+# Reflective Marshaling は効率良くない
+
+```dart
+void isEmailAddress(Dart_NativeArguments arguments)
+```
+
+`void` `arguments` 👀 返り値も引数も型は決まってるけど...
+
+#### ⇒ 引数/返り値が静的に型付けされた上での Marshaling の方が良い
+#### ⇒ FFI ✌️
+
+---
+# Flutter/Dart チームが採った方法は？
+---
+# dart : ffi 👍
 ---
 
-Dart VM FFI VISION について
+![center](./assets/flutter_ffi_sqlite_sample.png)
+
+---
+
+# 2.4 にて Preview 版提供開始 !
+
+<br>
+
+#### (Flutter/Android での試験的サポートも始まっている)
+---
+
+![w:1000](./assets/dart_ffi_architecture.svg)
 
 ---
 
 そもそも FFI の実装て何が難しいの？
-
----
-
-Android では dart:ffi がすでに使える
 
 ---
 
@@ -217,10 +306,10 @@ Flutter における FFI の展望
 ありがとうございました
 
 ---
+<!-- _class: default -->
+###### リンク一覧
 
-参考
-
-<div style="font-size: 25px;">
+<div style="font-size: 20px;">
 
 - [Dart VM FFI Vision](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e)
   - [Design and implement Dart VM FFI](https://github.com/dart-lang/sdk/issues/34452)
@@ -230,10 +319,10 @@ Flutter における FFI の展望
 - [C & C++ interop using FFI](https://dart.dev/server/c-interop)
   - [Dart Native platform ](https://dart.dev/platforms)
   - [dart:ffi sqllite sample](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/README.md)
-  - [sensuikan1973/Dart_FFI_Hello_World](https://github.com/sensuikan1973/Dart_FFI_Hello_World)
 - [The Engine architecture](https://github.com/flutter/flutter/wiki/The-Engine-architecture)
   - [Writing custom platform-specific code](https://flutter.io/platform-channels/)
   - [Custom Flutter Engine Embedders](https://github.com/flutter/flutter/wiki/Custom-Flutter-Engine-Embedders)
-
+- [Language features for FFI](https://github.com/dart-lang/language/issues/411)
 - [sensuikan1973/flutter-ffi-slide](https://github.com/sensuikan1973/flutter-ffi-slide)
+- [sensuikan1973/Dart_FFI_Hello_World](https://github.com/sensuikan1973/Dart_FFI_Hello_World)
 </div>
