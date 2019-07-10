@@ -21,36 +21,50 @@ theme: gaia
 ---
 # 話すこと
 ---
-<h2>
-○ Flutter/Dart で FFI どうやるか
+<!-- _class: default -->
+<br>
+<br>
+<br>
 
-○ (Flutter の) FFI は何が難しいか
-</h2>
+## ○ <span style="color:green;">利用者目線の</span> Flutter/Dart における FFI
 
+<br>
+<br>
+
+## ○ <span style="color:purple;">実装者目線の</span> Flutter/Dart における FFI
 ---
 # 自己紹介
 ---
-
+<!-- _header: 自己紹介 -->
+![bg right w:300](./assets/icon.jpg)
 ## しみず なおき
-![w:300](./assets/icon.jpg)
+
+<br>
+
+<a href="https://github.com/sensuikan1973" target="_blank"><img src="assets/GitHub-icon.png" style="border:none;" alt="sensuikan1973 Github"></i></a>
 
 ---
-
+<!-- _header: 自己紹介 -->
 ![w:800](./assets/othello.jpg)
 
 ---
+<!-- _header: 自己紹介 -->
 # お家で作ってるモノ
 ---
-![center](./assets/architecture.png)
+![center w:850](./assets/architecture.png)
 
 ---
+<!-- _header: 自己紹介 -->
 # オセロには常に C が必要
 ---
-![center](./assets/architecture_marked.png)
+<!-- _header: 自己紹介 -->
+![center w:850](./assets/architecture_marked.png)
 
 ---
+<!-- _header: C の呼び出し -->
 # 各言語の C 呼び出し
 ---
+<!-- _header: C の呼び出し -->
 #### 代表的なもの
 | 言語 | 実装方法 |
 | :-----: | :-----: |
@@ -63,6 +77,7 @@ theme: gaia
 | Swift | <div style="text-align:left">[そのままいける](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/using_imported_c_functions_in_swift)し、[カスタム](https://developer.apple.com/documentation/swift/objective-c_and_c_code_customization/customizing_your_c_code_for_swift)も可能 </div> |
 
 ---
+<!-- _header: C の呼び出し -->
 ### 例: Go -> C
 <div style="font-size:40px;">
 
@@ -87,7 +102,6 @@ func main() {
 </div>
 
 ---
-
 # Dart は？
 ---
 ## [Google I/O'19](https://www.youtube.com/watch?v=J5DQRPRBiFI) でも言及あり
@@ -273,13 +287,16 @@ void isEmailAddress(Dart_NativeArguments arguments)
 
 `void` `arguments` 👀 返り値も引数も型は決まってるけど...
 
-#### ⇒ 引数/返り値が静的に型付けされた上での Marshaling の方が良い
+#### ⇒ 引数/返り値が静的に型付けされた上での Marshaling の方が効率良い
 #### ⇒ FFI ✌️
 
 ---
 # Flutter/Dart チームが採った方法は？
 ---
 # dart : ffi 👍
+---
+#### ちなみに
+> we expect that moving Flutter Engine from C API to FFI should significantly reduce overheads associated with crossing the boundary between Dart and native code
 ---
 
 ![center](./assets/flutter_ffi_sqlite_sample.png)
@@ -292,18 +309,15 @@ void isEmailAddress(Dart_NativeArguments arguments)
 
 #### (Flutter/Android での試験的サポートも始まっている)
 ---
-
-![w:1000](./assets/dart_ffi_architecture.svg)
-
+# どんな感じの構成になるのか
 ---
 
-そもそも FFI の実装て何が難しいの？
+![w:1100](./assets/dart_ffi_architecture.svg)
 
 ---
-
-Flutter における FFI の展望
-
-
+# 今後も Flutter/Dart に期待大
+---
+# 意欲的な方は、<br>ぜひ [dart:ffi のプレビュー版 FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
 ---
 
 ありがとうございました
@@ -312,9 +326,9 @@ Flutter における FFI の展望
 <!-- _class: default -->
 ###### リンク一覧
 
-<div style="font-size: 20px;">
+<div style="font-size: 24px;">
 
-- [Dart VM FFI Vision](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e)
+- **[Dart VM FFI Vision](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e)**
   - [Design and implement Dart VM FFI](https://github.com/dart-lang/sdk/issues/34452)
   - [Flutter Support integrating with C/C++ in plugin framework](https://github.com/flutter/flutter/issues/7053)
   - [Native extensions for the standalone Dart VM](https://dart.dev/server/c-interop-native-extensions)
