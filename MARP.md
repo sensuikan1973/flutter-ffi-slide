@@ -306,10 +306,10 @@ Flutter における FFI の展望
 ありがとうございました
 
 ---
+<!-- _class: default -->
+###### リンク一覧
 
-参考
-
-<div style="font-size: 25px;">
+<div style="font-size: 20px;">
 
 - [Dart VM FFI Vision](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e)
   - [Design and implement Dart VM FFI](https://github.com/dart-lang/sdk/issues/34452)
@@ -319,11 +319,10 @@ Flutter における FFI の展望
 - [C & C++ interop using FFI](https://dart.dev/server/c-interop)
   - [Dart Native platform ](https://dart.dev/platforms)
   - [dart:ffi sqllite sample](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/README.md)
-  - [sensuikan1973/Dart_FFI_Hello_World](https://github.com/sensuikan1973/Dart_FFI_Hello_World)
 - [The Engine architecture](https://github.com/flutter/flutter/wiki/The-Engine-architecture)
   - [Writing custom platform-specific code](https://flutter.io/platform-channels/)
   - [Custom Flutter Engine Embedders](https://github.com/flutter/flutter/wiki/Custom-Flutter-Engine-Embedders)
 - [Language features for FFI](https://github.com/dart-lang/language/issues/411)
-
 - [sensuikan1973/flutter-ffi-slide](https://github.com/sensuikan1973/flutter-ffi-slide)
+- [sensuikan1973/Dart_FFI_Hello_World](https://github.com/sensuikan1973/Dart_FFI_Hello_World)
 </div>
