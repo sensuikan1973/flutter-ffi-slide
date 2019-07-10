@@ -46,20 +46,20 @@ theme: gaia
 <!-- _header: 自己紹介 -->
 # お家で作ってるモノ
 ---
-![center w:850](./assets/architecture.png)
+![center w:800](./assets/architecture.png)
 
 ---
 <!-- _header: 自己紹介 -->
 # オセロには常に C が必要
 ---
 <!-- _header: 自己紹介 -->
-![center w:850](./assets/architecture_marked.png)
+![center w:800](./assets/architecture_marked.png)
 
 ---
-<!-- _header: C の呼び出し -->
+<!-- _header: 前置き -->
 # 各言語の C 呼び出し
 ---
-<!-- _header: C の呼び出し -->
+<!-- _header: 前置き -->
 #### 代表的なもの
 | 言語 | 実装方法 |
 | :-----: | :-----: |
@@ -72,7 +72,7 @@ theme: gaia
 | Swift | <div style="text-align:left">[そのままいける](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/using_imported_c_functions_in_swift)し、[カスタム](https://developer.apple.com/documentation/swift/objective-c_and_c_code_customization/customizing_your_c_code_for_swift)も可能 </div> |
 
 ---
-<!-- _header: C の呼び出し -->
+<!-- _header: 前置き -->
 ### 例: Go -> C
 <div style="font-size:40px;">
 
