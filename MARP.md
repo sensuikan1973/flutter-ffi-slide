@@ -367,7 +367,7 @@ void isEmailAddress(Dart_NativeArguments arguments)
 
 ---
 
-ありがとうございました
+# ありがとうございました
 
 ---
 <!-- _class: default -->
