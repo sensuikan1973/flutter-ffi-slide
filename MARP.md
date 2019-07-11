@@ -294,7 +294,7 @@ void isEmailAddress(Dart_NativeArguments arguments)
 `void` `arguments` 👀
 
 #### ⇒ 引数/返り値が静的に型付けされた上での Marshaling の方が効率良い
-#### ⇒ FFI ✌️
+#### ⇒ その点は FFI が優れている ✌️
 
 ---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
@@ -310,10 +310,6 @@ void isEmailAddress(Dart_NativeArguments arguments)
 # 結果どう使えるのか？
 ---
 ## <span style="color:green;">利用者目線の</span> Flutter/Dart における FFI
----
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
-![center w:900](./assets/flutter_ffi_sqlite_sample.png)
-
 ---
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
 <div style="font-size:35px;">
