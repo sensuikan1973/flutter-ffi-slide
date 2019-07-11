@@ -8,6 +8,7 @@ class: lead
 theme: gaia
 ---
 # Flutter における FFI
+<!-- _footer: Flutter Meetup Tokyo #10 -->
 ---
 # FFI ？
 ---
