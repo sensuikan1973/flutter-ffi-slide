@@ -8,6 +8,7 @@ class: lead
 theme: gaia
 ---
 # Flutter における FFI
+<!-- _footer: Flutter Meetup Tokyo #10 -->
 ---
 # FFI ？
 ---
@@ -26,7 +27,9 @@ theme: gaia
 
 <br>
 
-## Flutter/Dart における FFI
+## Flutter/Dart における C 呼び出し
+---
+# その前に
 ---
 # 自己紹介
 ---
@@ -57,7 +60,7 @@ theme: gaia
 
 ---
 <!-- _header: 前置き -->
-# 各言語の C++/C 呼び出し
+# 各言語の C 呼び出し
 ---
 <!-- _header: 前置き -->
 #### 代表的なもの
@@ -72,8 +75,9 @@ theme: gaia
 
 ---
 <!-- _header: 前置き -->
+<!-- _class: default -->
 ### 例: Go -> C
-<div style="font-size:40px;">
+<div style="font-size:35px;">
 
 ```go
 package main
@@ -100,13 +104,6 @@ func main() {
 ---
 # こっから本題
 ---
-# ○ <span style="color:green;">利用者目線の</span>
-# ○ <span style="color:purple;">提供者目線の</span>
-
-<br>
-
-## Flutter/Dart における FFI
----
 ## <span style="color:green;">利用者目線の</span> Flutter/Dart における FFI
 ---
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
@@ -120,32 +117,41 @@ func main() {
 </b>
 
 ---
+# Dart から C 呼ぶには？ <br> (これまで)
+---
+<!-- _header: 利用者目線の Flutter/Dart における FFI -->
+# Native Extension
+---
+<!-- _header: 利用者目線の Flutter/Dart における FFI -->
+#### Dart 側
+<div style="font-size:35px;">
+
+```dart
+library sample_hello;
+import 'dart-ext:sample_hello';
+void hello() native "Hello";
+```
+</div>
+<br>
+
+<span style="font-size:30px;">参考: [dart-lang sample_extension](https://github.com/dart-lang/sdk/tree/master/samples/sample_extension)</span>
+
+---
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
 <!-- _class: default -->
-<br>
-<br>
-
-# ① Native Extension
-
-<br>
-<br>
-
-# ② dart : ffi
----
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
-# ① Native Extension
----
-<!-- _header: 「利用者目線」の Flutter/Dart における FFI -->
 #### C++ 側
-<div style="font-size:30px;">
 
-```cpp
+<!--
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include "include/dart_api.h"
 #include "include/dart_native_api.h"
+-->
 
+<div style="font-size:24px;">
+
+```cpp
 Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_scope);
 
 DART_EXPORT Dart_Handle sample_hello_Init(Dart_Handle parent_library) {
@@ -167,7 +173,7 @@ Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_sco
   const char *cname;
   Dart_StringToCString(name, &cname);
   Dart_NativeFunction result = NULL;
-  if (strcmp(cname, "Hello") == 0) result = Hello;
+  if (strcmp(cname, "hello") == 0) result = hello;
   Dart_ExitScope();
   return result;
 }
@@ -176,55 +182,24 @@ Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_sco
 
 ---
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
-#### Dart 側
-<div style="font-size:35px;">
-
-```dart
-library sample_hello;
-import 'dart-ext:sample_hello';
-void hello() native "Hello";
-```
-</div>
-<br>
-
-<span style="font-size:30px;">参考: [dart-lang sample_extension](https://github.com/dart-lang/sdk/tree/master/samples/sample_extension)</span>
-
----
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
-# ② dart:ffi
----
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
-> The extension mechanism discussed in this page is for deep integration of the VM.
-> If you just need to call existing code written in C or C++, see [C & C++ interop using FFI](https://dart.dev/server/c-interop).
-
-<br>
-<div style="font-size:25px;text-align:right;">
-
-引用元: [Native extensions for the standalone Dart VM](https://dart.dev/server/c-interop-native-extensions)
-</div>
-
----
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
-<div style="font-size:35px;">
-
-```dart
-import "dart:ffi" as ffi;
-import 'dart:io' show Platform;
-
-void main() {
-  final libHelloWorld = ffi.DynamicLibrary.open(
-  	"./libHelloWorld.dylib");
-  final helloWorld = libHelloWorld.lookupFunction
-  	<ffi.Void Function(), void Function()>("helloWorld");
-
-  helloWorld();
+<!-- _class: default -->
+### もう一例: 偶数判定
+```cpp
+void isEven(Dart_NativeArguments arguments) {
+  Dart_EnterScope();
+  Dart_Handle arg1 = Dart_GetNativeArgument(arguments, 0);
+  int64_t input;
+  if (Dart_IsError(Dart_IntegerToInt64(arg1, &input)))
+  {
+    Dart_ThrowException(Dart_NewStringFromCString("Error だよ"));
+  }
+  Dart_SetReturnValue(arguments, Dart_NewBoolean(input % 2 == 0));
+  Dart_ExitScope();
 }
 ```
-</div>
-<div style="font-size:30px;">
 
-[https://github.com/sensuikan1973/Dart_FFI_Hello_World](https://github.com/sensuikan1973/Dart_FFI_Hello_World)
-</div>
+👉 深いレベルで拡張可能
+👉 引数と返り値の型情報が静的に定義されていない
 
 ---
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
@@ -265,12 +240,14 @@ void main() {
 ---
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
 # ② 大量のデータを効率よく出し入れしたい
----
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
-## なお、Dart 2.4 から [TransferableTypedData](https://api.dartlang.org/stable/2.4.0/dart-isolate/TransferableTypedData-class.html)  が使用できるようになったので、ある程度はそれで間に合いそう
+
+<br>
+<br>
+
+##### なお、Dart 2.4 から [TransferableTypedData](https://api.dartlang.org/stable/2.4.0/dart-isolate/TransferableTypedData-class.html)  が使用できるようになったので、ある程度はそれで間に合いそう
 
 ---
-# どうするか？
+# こういう要望にどう応えるか？
 ---
 ## <span style="color:purple;">提供者目線の</span> Flutter/Dart における FFI
 ---
@@ -309,11 +286,11 @@ Dart_SetField(Dart_Handle container, Dart_Handle name, Dart_Handle value);
 # 【 理由 2 】
 # Reflective Marshaling は効率良くない
 
-```dart
+```cpp
 void isEmailAddress(Dart_NativeArguments arguments)
 ```
 
-`void` `arguments` 👀 返り値も引数も型は決まってるけど...
+`void` `arguments` 👀
 
 #### ⇒ 引数/返り値が静的に型付けされた上での Marshaling の方が効率良い
 #### ⇒ FFI ✌️
@@ -332,15 +309,38 @@ void isEmailAddress(Dart_NativeArguments arguments)
 # 結果どう使えるのか？
 ---
 ## <span style="color:green;">利用者目線の</span> Flutter/Dart における FFI
-に話を戻す
-
 ---
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
 ![center w:900](./assets/flutter_ffi_sqlite_sample.png)
 
 ---
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
-# 2.4 にて Preview 版提供開始 !
+<div style="font-size:35px;">
+
+```dart
+import "dart:ffi" as ffi;
+import 'dart:io' show Platform;
+
+void main() {
+  final libHelloWorld = ffi.DynamicLibrary.open(
+  	"./libHelloWorld.dylib");
+  final helloWorld = libHelloWorld.lookupFunction
+  	<ffi.Void Function(), void Function()>("helloWorld");
+
+  helloWorld();
+}
+```
+</div>
+<div style="font-size:30px;">
+
+[https://github.com/sensuikan1973/Dart_FFI_Hello_World](https://github.com/sensuikan1973/Dart_FFI_Hello_World)
+</div>
+
+---
+# そして、先週、、、
+---
+<!-- _header: 利用者目線の Flutter/Dart における FFI -->
+# 2.4 に Preview 版が入った !
 
 <br>
 
@@ -353,9 +353,11 @@ void isEmailAddress(Dart_NativeArguments arguments)
 ![w:1100](./assets/dart_ffi_architecture.svg)
 
 ---
+# 👍
+---
 # 今後も Flutter/Dart に期待大
 ---
-# 意欲的な方は、<br>ぜひ [dart:ffi のプレビュー版 FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
+# 意欲的な方は、<br>ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
 ---
 # ありがとうございました ？
 ---
@@ -364,8 +366,10 @@ void isEmailAddress(Dart_NativeArguments arguments)
 # Flutter/Dart の FFI 実装の難しさに触れないと！
 ---
 ## <span style="color:purple;">提供者目線の</span> Flutter/Dart における FFI
-の続きをして終わります
+のもうちょっと深いところ
 
+---
+# FFI の提供、具体的に何が難しいの？
 ---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
 あああ
