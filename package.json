@@ -9,7 +9,7 @@
         "build": "./scripts/build.sh"
     },
     "dependencies": {
-        "@marp-team/marp-cli": "0.11.3",
+        "@marp-team/marp-cli": "0.12.0",
         "cpx": "1.5.0",
         "puppeteer": "1.18.1",
         "rimraf": "2.6.3"
