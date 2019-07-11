@@ -1,32 +1,29 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f2a99ebe-632d-42a6-93e7-613bd56b2a05/deploy-status)](https://app.netlify.com/sites/flutter-ffi-slide-sensuikan1973/deploys)
 
 # Flutter FFI Slide
-At [Flutter Meetup Tokyo #10](https://flutter-jp.connpass.com/event/134921/)
+At [Flutter Meetup Tokyo #10](https://flutter-jp.connpass.com/event/134921/)  
+See **https://speakerdeck.com/sensuikan1973/ffi-in-flutter**
 
-# Hosting
+## Development
 
-## HTML
-https://flutter-ffi-slide.done-sensuikan1973.com  
-**See on PC**. Saddly, This site may be heavy on old smart phone...
-
-## PDF
-https://flutter-ffi-slide.done-sensuikan1973.com/slide.pdf
-
-# Usage
-
-## development
+### preview
 ```sh
 yarn install
 yarn start
 ```
 
-## presentation without hosting
+### build HTML
 ```sh
 yarn build
+```
+
+### presentation on local
+```sh
+yarn pdf
 pdfpc slide.pdf
 ```
 
-# References
+## References
 * [Marp](https://marpit.marp.app/)
     * [marp-cli](https://github.com/marp-team/marp-cli)
 * [pdfpc](https://github.com/pdfpc/pdfpc)
