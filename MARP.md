@@ -352,9 +352,11 @@ void main() {
 ![w:1100](./assets/dart_ffi_architecture.svg)
 
 ---
+# 👍
+---
 # 今後も Flutter/Dart に期待大
 ---
-# 意欲的な方は、<br>ぜひ [dart:ffi のプレビュー版 FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
+# 意欲的な方は、<br>ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
 ---
 # ありがとうございました ？
 ---
@@ -363,8 +365,10 @@ void main() {
 # Flutter/Dart の FFI 実装の難しさに触れないと！
 ---
 ## <span style="color:purple;">提供者目線の</span> Flutter/Dart における FFI
-の続きをして終わります
+のもうちょっと深いところ
 
+---
+# FFI の提供、具体的に何が難しいの？
 ---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
 あああ
