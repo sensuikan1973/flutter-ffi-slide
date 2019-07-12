@@ -184,7 +184,7 @@ Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_sco
 ---
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
 <!-- _class: default -->
-### もう一例: 偶数判定
+### 例をもう一個: 偶数判定
 ```cpp
 void isEven(Dart_NativeArguments arguments) {
   Dart_EnterScope();
@@ -363,6 +363,8 @@ void main() {
 # ✋
 ---
 # Flutter/Dart の FFI 実装の難しさに触れないと！
+---
+# こっからが本当の本題です 🙌
 ---
 ## <span style="color:purple;">提供者目線の</span> Flutter/Dart における FFI
 のもうちょっと深いところ
