@@ -373,9 +373,20 @@ void main() {
 # FFI の提供、具体的に何が難しいの？
 ---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
+# その前に確認
+---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
 ##  そもそも Dart がどうやって動いてるか、本当にちゃんと説明できますか？
 ---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+Dart VM の仕組みの話
 
+---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+# さて本題
+---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+# FFI の提供、具体的に何が難しいの？
 ---
 
 # ありがとうございました
