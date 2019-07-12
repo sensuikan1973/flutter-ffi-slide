@@ -383,12 +383,12 @@ void main() {
 
 <div style="font-size: 24px;">
 
-- **[Dart VM FFI Vision](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e)**
+- [Dart VM FFI Vision](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e)
+  - [Introduction to Dart VM](https://mrale.ph/dartvm/)
   - [Design and implement Dart VM FFI](https://github.com/dart-lang/sdk/issues/34452)
   - [Flutter Support integrating with C/C++ in plugin framework](https://github.com/flutter/flutter/issues/7053)
   - [Native extensions for the standalone Dart VM](https://dart.dev/server/c-interop-native-extensions)
   - [Support for Dart Extensions](https://github.com/flutter/flutter/issues/2396)
-  - [Introduction to Dart VM](https://mrale.ph/dartvm/)
 - [C & C++ interop using FFI](https://dart.dev/server/c-interop)
   - [Dart Native platform ](https://dart.dev/platforms)
   - [dart:ffi sqllite sample](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/README.md)
