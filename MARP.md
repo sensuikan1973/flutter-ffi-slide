@@ -110,17 +110,6 @@ func main() {
 ---
 ## <span style="color:green;">利用者目線の</span> Flutter/Dart における FFI
 ---
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
-## [Google I/O'19](https://www.youtube.com/watch?v=J5DQRPRBiFI) でも言及あり
-![center](./assets/dart_session_io19.png)
-<b style="text-align:center">
-
-> We are working on a new foreign function interface.
-> This should help you reuse existing C and C++ code,
-> which is important for some critical stuff
-</b>
-
----
 # Dart から C 呼ぶには？ <br> (これまで)
 ---
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
@@ -356,6 +345,17 @@ void main() {
 
 ---
 # 👍
+---
+<!-- _header: 利用者目線の Flutter/Dart における FFI -->
+## [Google I/O'19](https://www.youtube.com/watch?v=J5DQRPRBiFI) でも言及あり
+![center](./assets/dart_session_io19.png)
+<b style="text-align:center">
+
+> We are working on a new foreign function interface.
+> This should help you reuse existing C and C++ code,
+> which is important for some critical stuff
+</b>
+
 ---
 # 意欲的な方は、<br>ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
 ---
