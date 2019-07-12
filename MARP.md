@@ -60,14 +60,17 @@ theme: gaia
 ![center w:800](./assets/architecture_marked.png)
 
 ---
+# 前置き
+---
 <!-- _header: 前置き -->
 # 各言語の C 呼び出し
 ---
 <!-- _header: 前置き -->
-#### 代表的なもの
+### 代表的なもの
 | 言語 | 実装方法 |
 | :-----: | :-----: |
 | Java | <div style="text-align:left">[JNI](https://docs.oracle.com/javase/jp/8/docs/technotes/guides/jni/spec/jniTOC.html) や [JNA](https://github.com/java-native-access/jna), [SWIG](http://www.swig.org/) を使う</div> |
+| Go | <div style="text-align:left">[cgo](https://golang.org/cmd/cgo/) を使う</div> |
 | Python | <div style="text-align:left">[ctypes](https://docs.python.org/3/library/ctypes.html) や [cffi](https://cffi.readthedocs.io/en/latest/) を使う</div> |
 | Rust | <div style="text-align:left">[extern キーワード](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html#using-extern-functions-to-call-external-code)で容易に呼べる</div>|
 | Ruby | <div style="text-align:left">[Ruby-FFI](https://github.com/ffi/ffi) を使う</div> |
@@ -362,18 +365,18 @@ void main() {
 ---
 # ✋
 ---
-# Flutter/Dart の FFI 実装の難しさに触れないと！
----
 # こっからが本当の本題です 🙌
 ---
 ## <span style="color:purple;">提供者目線の</span> Flutter/Dart における FFI
 のもうちょっと深いところ
 
 ---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
 # FFI の提供、具体的に何が難しいの？
 ---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
-あああ
+# そもそも Dart がどうやって動いてるかちゃんと説明できますか？
+---
 
 ---
 
