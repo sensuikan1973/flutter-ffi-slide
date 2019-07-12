@@ -349,6 +349,8 @@ void main() {
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
 ![w:1100](./assets/dart_ffi_architecture.svg)
 
+<!-- _footer: ([dart-lang/sdk/samples/ffi/sqlite/docs/sqlite-tutorial.md](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md) より引用) -->
+
 ---
 # 👍
 ---
