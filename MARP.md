@@ -21,7 +21,7 @@ theme: gaia
 
 #####  今回は C++/C の呼び出しの話
 ---
-# 話すこと
+# 今日話すこと
 ---
 # ○ <span style="color:green;">利用者目線の</span>
 # ○ <span style="color:purple;">提供者目線の</span>
@@ -357,8 +357,6 @@ void main() {
 ---
 # 👍
 ---
-# 今後も Flutter/Dart に期待大
----
 # 意欲的な方は、<br>ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
 ---
 # ありがとうございました ？
@@ -375,7 +373,7 @@ void main() {
 # FFI の提供、具体的に何が難しいの？
 ---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
-# そもそも Dart がどうやって動いてるかちゃんと説明できますか？
+##  そもそも Dart がどうやって動いてるか、本当にちゃんと説明できますか？
 ---
 
 ---
@@ -386,7 +384,7 @@ void main() {
 <!-- _class: default -->
 ###### リンク一覧
 
-<div style="font-size: 24px;">
+<div style="font-size: 20px;">
 
 - [Dart VM FFI Vision](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e)
   - [Introduction to Dart VM](https://mrale.ph/dartvm/)
@@ -401,6 +399,7 @@ void main() {
   - [Writing custom platform-specific code](https://flutter.io/platform-channels/)
   - [Custom Flutter Engine Embedders](https://github.com/flutter/flutter/wiki/Custom-Flutter-Engine-Embedders)
 - [Language features for FFI](https://github.com/dart-lang/language/issues/411)
+- [compiler engineer "mraleph"](https://mrale.ph/)
 - [sensuikan1973/flutter-ffi-slide](https://github.com/sensuikan1973/flutter-ffi-slide)
 - [sensuikan1973/Dart_FFI_Hello_World](https://github.com/sensuikan1973/Dart_FFI_Hello_World)
 </div>
