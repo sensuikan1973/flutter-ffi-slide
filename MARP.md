@@ -383,10 +383,21 @@ Dart VM の仕組みの話
 
 ---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
-# さて本題
+# さて本筋に戻る
 ---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
-# FFI の提供、具体的に何が難しいの？
+# FFI の提供って何が難しいの？
+---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+# 「補完してほしいし、静的解析もしてほしいなー」
+### とみんな思う
+---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+# それって難しいんだよって話
+---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+## 
+
 ---
 
 # ありがとうございました
