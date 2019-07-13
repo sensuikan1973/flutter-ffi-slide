@@ -9,6 +9,7 @@ theme: gaia
 ---
 # Flutter における FFI
 <!-- _footer: Flutter Meetup Tokyo #10 -->
+
 ---
 # FFI ？
 ---
@@ -20,7 +21,7 @@ theme: gaia
 
 #####  今回は C++/C の呼び出しの話
 ---
-# 話すこと
+# 今日話すこと
 ---
 # ○ <span style="color:green;">利用者目線の</span>
 # ○ <span style="color:purple;">提供者目線の</span>
@@ -59,14 +60,17 @@ theme: gaia
 ![center w:800](./assets/architecture_marked.png)
 
 ---
+# 前置き
+---
 <!-- _header: 前置き -->
 # 各言語の C 呼び出し
 ---
 <!-- _header: 前置き -->
-#### 代表的なもの
+### 代表的なもの
 | 言語 | 実装方法 |
 | :-----: | :-----: |
 | Java | <div style="text-align:left">[JNI](https://docs.oracle.com/javase/jp/8/docs/technotes/guides/jni/spec/jniTOC.html) や [JNA](https://github.com/java-native-access/jna), [SWIG](http://www.swig.org/) を使う</div> |
+| Go | <div style="text-align:left">[cgo](https://golang.org/cmd/cgo/) を使う</div> |
 | Python | <div style="text-align:left">[ctypes](https://docs.python.org/3/library/ctypes.html) や [cffi](https://cffi.readthedocs.io/en/latest/) を使う</div> |
 | Rust | <div style="text-align:left">[extern キーワード](https://doc.rust-lang.org/book/ch19-01-unsafe-rust.html#using-extern-functions-to-call-external-code)で容易に呼べる</div>|
 | Ruby | <div style="text-align:left">[Ruby-FFI](https://github.com/ffi/ffi) を使う</div> |
@@ -105,17 +109,6 @@ func main() {
 # こっから本題
 ---
 ## <span style="color:green;">利用者目線の</span> Flutter/Dart における FFI
----
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
-## [Google I/O'19](https://www.youtube.com/watch?v=J5DQRPRBiFI) でも言及あり
-![center](./assets/dart_session_io19.png)
-<b style="text-align:center">
-
-> We are working on a new foreign function interface.
-> This should help you reuse existing C and C++ code,
-> which is important for some critical stuff
-</b>
-
 ---
 # Dart から C 呼ぶには？ <br> (これまで)
 ---
@@ -183,7 +176,7 @@ Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_sco
 ---
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
 <!-- _class: default -->
-### もう一例: 偶数判定
+### 例をもう一個: 偶数判定
 ```cpp
 void isEven(Dart_NativeArguments arguments) {
   Dart_EnterScope();
@@ -293,7 +286,7 @@ void isEmailAddress(Dart_NativeArguments arguments)
 `void` `arguments` 👀
 
 #### ⇒ 引数/返り値が静的に型付けされた上での Marshaling の方が効率良い
-#### ⇒ FFI ✌️
+#### ⇒ その点は FFI が優れている ✌️
 
 ---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
@@ -309,10 +302,6 @@ void isEmailAddress(Dart_NativeArguments arguments)
 # 結果どう使えるのか？
 ---
 ## <span style="color:green;">利用者目線の</span> Flutter/Dart における FFI
----
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
-![center w:900](./assets/flutter_ffi_sqlite_sample.png)
-
 ---
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
 <div style="font-size:35px;">
@@ -352,10 +341,21 @@ void main() {
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
 ![w:1100](./assets/dart_ffi_architecture.svg)
 
+<!-- _footer: ([dart-lang/sdk/samples/ffi/sqlite/docs/sqlite-tutorial.md](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md) より引用) -->
+
 ---
 # 👍
 ---
-# 今後も Flutter/Dart に期待大
+<!-- _header: 利用者目線の Flutter/Dart における FFI -->
+## [Google I/O'19](https://www.youtube.com/watch?v=J5DQRPRBiFI) でも言及あり
+![center](./assets/dart_session_io19.png)
+<b style="text-align:center">
+
+> We are working on a new foreign function interface.
+> This should help you reuse existing C and C++ code,
+> which is important for some critical stuff
+</b>
+
 ---
 # 意欲的な方は、<br>ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
 ---
@@ -363,16 +363,46 @@ void main() {
 ---
 # ✋
 ---
-# Flutter/Dart の FFI 実装の難しさに触れないと！
+# こっからが本当の本題です 🙌
 ---
 ## <span style="color:purple;">提供者目線の</span> Flutter/Dart における FFI
 のもうちょっと深いところ
 
 ---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
 # FFI の提供、具体的に何が難しいの？
 ---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
-あああ
+# その前に確認
+---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+##  そもそも Dart がどうやって動いてるか、本当にちゃんと説明できますか？
+---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+Dart VM の仕組みの話
+
+---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+# さて本筋に戻る
+---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+# FFI の提供って何が難しいの？
+---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+# 「補完してほしいし、静的解析もしてほしいなー」
+### とみんな思う
+---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+# それって難しいんだよって話
+---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+# なんで？
+---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+## 「必要な情報を静的な型に encode し、追加の型ルールを適用する」<br>ための型システム機能がないから
+---
+<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+# ？？？
 
 ---
 
@@ -382,13 +412,14 @@ void main() {
 <!-- _class: default -->
 ###### リンク一覧
 
-<div style="font-size: 24px;">
+<div style="font-size: 20px;">
 
-- **[Dart VM FFI Vision](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e)**
+- [Dart VM FFI Vision](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e)
+  - [Introduction to Dart VM](https://mrale.ph/dartvm/)
   - [Design and implement Dart VM FFI](https://github.com/dart-lang/sdk/issues/34452)
   - [Flutter Support integrating with C/C++ in plugin framework](https://github.com/flutter/flutter/issues/7053)
   - [Native extensions for the standalone Dart VM](https://dart.dev/server/c-interop-native-extensions)
-  - [Support for Dart Extensions](https://github.com/flutter/flutter/issues/2396) 
+  - [Support for Dart Extensions](https://github.com/flutter/flutter/issues/2396)
 - [C & C++ interop using FFI](https://dart.dev/server/c-interop)
   - [Dart Native platform ](https://dart.dev/platforms)
   - [dart:ffi sqllite sample](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/README.md)
@@ -396,6 +427,7 @@ void main() {
   - [Writing custom platform-specific code](https://flutter.io/platform-channels/)
   - [Custom Flutter Engine Embedders](https://github.com/flutter/flutter/wiki/Custom-Flutter-Engine-Embedders)
 - [Language features for FFI](https://github.com/dart-lang/language/issues/411)
+- [compiler engineer "mraleph"](https://mrale.ph/)
 - [sensuikan1973/flutter-ffi-slide](https://github.com/sensuikan1973/flutter-ffi-slide)
 - [sensuikan1973/Dart_FFI_Hello_World](https://github.com/sensuikan1973/Dart_FFI_Hello_World)
 </div>
