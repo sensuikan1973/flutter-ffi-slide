@@ -321,8 +321,14 @@ void main() {
 <!-- _footer: ([dart-lang/sdk/samples/ffi/sqlite/docs/sqlite-tutorial.md](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md) より引用) -->
 
 ---
-# 課題
-### 何個かを紹介
+## MVP 向けの課題をいくつか紹介
+
+<br>
+<br>
+<span style="font-size:20px;">
+
+*MVP= Minimum Viable Product
+</span>
 
 <!-- _footer: 参考: [design-scketch](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e#design-sketch), [sqlite sample](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md#current-dartffi-development-status) -->
 
@@ -339,68 +345,20 @@ void main() {
 
 ![w:850](./assets/dart-to-kernel.png)
 
-#### 補完や静的解析を行うために、<br>[CFE (Common Front-End)](https://github.com/dart-lang/sdk/tree/master/pkg/front_end) の追加実装がまだまだ必要。
+#### 補完や静的解析を行うために、<br>[CFE (Common Front-End)](https://github.com/dart-lang/sdk/tree/master/pkg/front_end) への追加実装が必要。
 
 <span style="font-size:20px;">
 
-*Dart2 VM からは、生のソースから Dart を直接実行できず、CFE によって生成された Kernel Binary(dill)を与える必要がある
+*Dart2 VM からは、生のソースから Dart を直接実行できず、CFE によって生成された [Kernel Binary(dill)](https://github.com/dart-lang/sdk/blob/master/pkg/kernel/binary.md) を与える必要がある
 </span>
 
 ---
 <!-- _header: dart:ffi -->
-### 3: Binding 書くの疲れる
+### 3: サポート対象のプラットフォーム
 
-<div style="font-size: 15px;">
-
-```dart
-typedef sqlite3_step_native_t = Int32 Function(Pointer<Statement> statement);
-
-typedef sqlite3_reset_native_t = Int32 Function(Pointer<Statement> statement);
-
-typedef sqlite3_finalize_native_t = Int32 Function(
-    Pointer<Statement> statement);
-
-typedef sqlite3_errstr_native_t = Pointer<Utf8> Function(Int32 error);
-
-typedef sqlite3_errmsg_native_t = Pointer<Utf8> Function(
-    Pointer<Database> database);
-
-typedef sqlite3_column_count_native_t = Int32 Function(
-    Pointer<Statement> statement);
-
-typedef sqlite3_column_name_native_t = Pointer<Utf8> Function(
-    Pointer<Statement> statement, Int32 columnIndex);
-
-typedef sqlite3_column_decltype_native_t = Pointer<Utf8> Function(
-    Pointer<Statement> statement, Int32 columnIndex);
-
-typedef sqlite3_column_type_native_t = Int32 Function(
-    Pointer<Statement> statement, Int32 columnIndex);
-
-typedef sqlite3_column_value_native_t = Pointer<Value> Function(
-    Pointer<Statement> statement, Int32 columnIndex);
-
-typedef sqlite3_column_double_native_t = Double Function(
-    Pointer<Statement> statement, Int32 columnIndex);
-
-typedef sqlite3_column_int_native_t = Int32 Function(
-    Pointer<Statement> statement, Int32 columnIndex);
-
-typedef sqlite3_column_text_native_t = Pointer<Utf8> Function(
-    Pointer<Statement> statement, Int32 columnIndex);
-
-(略)
-```
-
-</div>
-
-### ⇒ C header からの生成ツール等を[検討](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e#generating-dart-bindings-from-c-headers)
-
----
-<!-- _header: dart:ffi -->
-### 4: 型変換の都度実装
-![w:850](./assets/ffi_data_helper.png)
-### ⇒ ヘルパーの実装を[検討](https://github.com/dart-lang/sdk/issues/36711)
+待ちきれない人がスケジュールを聞く
+⇒ 具体的なスケジュールは示さないけど、近い将来その状態になるから待っていよう
+![w:850](./assets/support_ios.png)
 
 ---
 # ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
@@ -423,6 +381,7 @@ typedef sqlite3_column_text_native_t = Pointer<Utf8> Function(
   - [Flutter Support integrating with C/C++ in plugin framework](https://github.com/flutter/flutter/issues/7053)
   - [Native extensions for the standalone Dart VM](https://dart.dev/server/c-interop-native-extensions)
   - [Support for Dart Extensions](https://github.com/flutter/flutter/issues/2396)
+  - [dart:ffi resolve outstanding design decisions](https://github.com/dart-lang/sdk/issues/35764)
 - [C & C++ interop using FFI](https://dart.dev/server/c-interop)
   - **[sdk/lib/ffi/](https://github.com/dart-lang/sdk/tree/master/sdk/lib/ffi)**
   - [Dart Native platform ](https://dart.dev/platforms)
