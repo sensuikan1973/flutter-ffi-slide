@@ -287,6 +287,7 @@ void isEmailAddress(Dart_NativeArguments arguments)
 > This should help you reuse existing C and C++ code,
 > which is important for some critical stuff
 </b>
+
 ---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
 #### ちなみに
