@@ -323,7 +323,7 @@ void main() {
 ---
 ## 課題をいくつか紹介
 
-<!-- _footer: 参考: [Dart VM FFI milestone](https://github.com/dart-lang/sdk/projects/13), [design-scketch](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e#design-sketch), [sqlite sample](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md#current-dartffi-development-status) -->
+<!-- _footer: 参考: [Dart VM FFI projects](https://github.com/dart-lang/sdk/projects/13), [design-scketch](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e#design-sketch), [sqlite sample](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md#current-dartffi-development-status) -->
 
 ---
 <!-- _header: dart:ffi -->
@@ -354,12 +354,11 @@ void main() {
 ![w:850](./assets/support_ios.png)
 
 ---
+<!-- _header: dart:ffi -->
+#### その他 VM の実装タスクの詳細は <br>[Dart VM FFI projects](https://github.com/dart-lang/sdk/projects/13) を参照
+
+---
 # ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
-
-<br>
-<br>
-
-#### Dart VM FFI の進行状況は [ココ](https://github.com/dart-lang/sdk/projects/13)
 ---
 # ありがとうございました
 ---
