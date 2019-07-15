@@ -364,7 +364,7 @@ void main() {
 ### その他タスクの詳細は <br>[Dart VM FFI projects](https://github.com/dart-lang/sdk/projects/13) を参照
 <br>
 
-##### 正直に言ってあまり理解できてないタスクが多い...
+##### 正直に言って、低レイヤの勉強不足で、<br>あまり理解できてないものが多い...
 
 ---
 # ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
