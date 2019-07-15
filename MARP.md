@@ -78,32 +78,6 @@ theme: gaia
 | Swift | <div style="text-align:left">[そのままいける](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/using_imported_c_functions_in_swift)し、[カスタム](https://developer.apple.com/documentation/swift/objective-c_and_c_code_customization/customizing_your_c_code_for_swift)も可能 </div> |
 
 ---
-<!-- _header: 前置き -->
-<!-- _class: default -->
-### 例: Go -> C
-<div style="font-size:35px;">
-
-```go
-package main
-
-/*
-#include <stdlib.h>
-#include <stdio.h>
-
-void hello() {
-    printf("Hello\n");
-}
-*/
-import "C"
-
-func main() {
-    C.hello()
-}
-
-```
-</div>
-
----
 # Dart は？
 ---
 # こっから本題
