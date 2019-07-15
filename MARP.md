@@ -7,7 +7,10 @@ class: lead
 # See: https://github.com/marp-team/marp-vscode/issues/39
 theme: gaia
 ---
-# Flutter/Dart で <br>FFI のサポートが進んでいる理由と、<br>その難しさは？
+# Flutter/Dart における FFI
+---
+## 今日話すこと
+# 「FFI のサポートが進んでいる理由と、<br>その難しさは？」
 <!-- _footer: Flutter Meetup Tokyo #10 ： しみずなおき-->
 
 ---
