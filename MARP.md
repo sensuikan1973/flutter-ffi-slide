@@ -31,7 +31,7 @@ theme: gaia
 ## @sensuikan1973
 <a href="https://github.com/sensuikan1973" target="_blank"><img src="assets/GitHub-icon.png" style="border:none;" alt="sensuikan1973 Github"></i></a>
 
-低レイヤの習熟度低いですが、諸事情で毎回必要になる運命にあるので、FFI について調べました
+低レイヤの習熟度低いですが、頻繁に FFI と付き合う運命にあるので調べました
 
 ---
 <!-- _header: 自己紹介 -->
