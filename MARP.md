@@ -329,10 +329,6 @@ void main() {
 <!-- _footer: ([dart-lang/sdk/samples/ffi/sqlite/docs/sqlite-tutorial.md](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md) より引用) -->
 
 ---
-<!-- _header: FFI の実装が進んでいる背景 > dart:ffi の始まり -->
-## もちろん課題は多い
-
----
 # ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
 
 <br>
