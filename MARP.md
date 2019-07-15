@@ -300,35 +300,115 @@ void main() {
 
 ---
 <!-- _header: dart:ffi -->
-# そして、先週、、、
----
-<!-- _header: dart:ffi -->
-# Flutter stable 版に preview が!
+# ちなみに、先週、
+# Flutter stable 版に入った
 
 <br>
 
-#### (Android のみの試験的なもの)
+#### (Android のみで試験的に触れる)
 ---
 <!-- _header: dart:ffi -->
 # どういう構成になるのか
 ---
 <!-- _header: dart:ffi -->
-![w:1100](./assets/dart_ffi_architecture.svg)
+![w:850](./assets/dart_ffi_architecture_without_c_glue_code.svg)
+
+<div style="font-size: 25px;">
+
+👉 Bindings: `final helloWorld = libHelloWorld.lookupFunction<ffi.Void Function(), void Function()>("helloWorld");` みたいなのを定義するレイヤーのこと
+</div>
 
 <!-- _footer: ([dart-lang/sdk/samples/ffi/sqlite/docs/sqlite-tutorial.md](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md) より引用) -->
 
 ---
 # 課題
+### 何個かを紹介
+
+<!-- _footer: 参考: [design-scketch](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e#design-sketch), [sqlite sample](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md#current-dartffi-development-status) -->
+
 ---
 <!-- _header: dart:ffi -->
-## 
+### 1: 例外を拾えない
+### ⇒ C レイヤーを追加実装する
+
+![w:850](./assets/dart_ffi_architecture.svg)
+
+---
+<!-- _header: dart:ffi -->
+### 2: CFE への追加実装
+
+![w:850](./assets/dart-to-kernel.png)
+
+#### 補完や静的解析を行うために、<br>[CFE (Common Front-End)](https://github.com/dart-lang/sdk/tree/master/pkg/front_end) の追加実装がまだまだ必要。
+
+<span style="font-size:20px;">
+
+*Dart2 VM からは、生のソースから Dart を直接実行できず、CFE によって生成された Kernel Binary(dill)を与える必要がある
+</span>
+
+---
+<!-- _header: dart:ffi -->
+### 3: Binding 書くの疲れる
+
+<div style="font-size: 15px;">
+
+```dart
+typedef sqlite3_step_native_t = Int32 Function(Pointer<Statement> statement);
+
+typedef sqlite3_reset_native_t = Int32 Function(Pointer<Statement> statement);
+
+typedef sqlite3_finalize_native_t = Int32 Function(
+    Pointer<Statement> statement);
+
+typedef sqlite3_errstr_native_t = Pointer<Utf8> Function(Int32 error);
+
+typedef sqlite3_errmsg_native_t = Pointer<Utf8> Function(
+    Pointer<Database> database);
+
+typedef sqlite3_column_count_native_t = Int32 Function(
+    Pointer<Statement> statement);
+
+typedef sqlite3_column_name_native_t = Pointer<Utf8> Function(
+    Pointer<Statement> statement, Int32 columnIndex);
+
+typedef sqlite3_column_decltype_native_t = Pointer<Utf8> Function(
+    Pointer<Statement> statement, Int32 columnIndex);
+
+typedef sqlite3_column_type_native_t = Int32 Function(
+    Pointer<Statement> statement, Int32 columnIndex);
+
+typedef sqlite3_column_value_native_t = Pointer<Value> Function(
+    Pointer<Statement> statement, Int32 columnIndex);
+
+typedef sqlite3_column_double_native_t = Double Function(
+    Pointer<Statement> statement, Int32 columnIndex);
+
+typedef sqlite3_column_int_native_t = Int32 Function(
+    Pointer<Statement> statement, Int32 columnIndex);
+
+typedef sqlite3_column_text_native_t = Pointer<Utf8> Function(
+    Pointer<Statement> statement, Int32 columnIndex);
+
+(略)
+```
+
+</div>
+
+### ⇒ C header からの生成ツール等を[検討](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e#generating-dart-bindings-from-c-headers)
+
+---
+<!-- _header: dart:ffi -->
+### 4: 型変換の都度実装
+![w:850](./assets/ffi_data_helper.png)
+### ⇒ ヘルパーの実装を[検討](https://github.com/dart-lang/sdk/issues/36711)
+
 ---
 # ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
 
 <br>
 <br>
 
-#### ([課題](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e#design-sketch) は多いです。Dart VM FFI の進行状況は [ココ](https://github.com/dart-lang/sdk/projects/13))
+#### Dart VM FFI の進行状況は [ココ](https://github.com/dart-lang/sdk/projects/13)
 ---
 # ありがとうございました
 ---
