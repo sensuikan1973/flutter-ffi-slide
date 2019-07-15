@@ -7,12 +7,25 @@ class: lead
 # See: https://github.com/marp-team/marp-vscode/issues/39
 theme: gaia
 ---
-# Flutter/Dart で <br>FFI のサポートが進んでいる理由は？
+# Flutter/Dart で <br>FFI のサポートが進んでいる理由と、<br>その難しさは？
 <!-- _footer: Flutter Meetup Tokyo #10 ： しみずなおき-->
 
 ---
-# 【 結論 】
-# 主にパフォーマンスの観点から <br> Native Extension より <br>FFI が適していると判断されたため
+## 【 結論 】
+
+<div style="font-size:45px;">
+<table>
+<tr>
+    <td>理由</td>
+    <td>主にパフォーマンスの観点から <br> Native Extension より <br>FFI が適しているため</td>
+</tr>
+<tr>
+    <td>難しさ</td>
+    <td>Dart 型システムに対する、<br>独自の拡張が必要になる点</td>
+</tr>
+</table>
+</div>
+
 ---
 # FFI ？
 ---
@@ -356,6 +369,7 @@ void main() {
 ---
 # まとめ
 ---
+ああああ
 
 ---
 # ありがとうございました
