@@ -267,6 +267,9 @@ void isEmailAddress(Dart_NativeArguments arguments)
 <!-- _header: dart:ffi -->
 #### ちなみに
 > we expect that moving Flutter Engine from C API to FFI should significantly reduce overheads associated with crossing the boundary between Dart and native code
+
+<!-- _footer: ([Dart VM FFI Vision](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e) より引用)-->
+
 ---
 <!-- _header: dart:ffi -->
 # どう使えるのか？
@@ -346,7 +349,7 @@ void main() {
 ### 3: サポート対象のプラットフォーム
 
 待ちきれない人がスケジュールを聞く
-⇒ 具体的なスケジュールは示さないけど、近い将来その状態になるから待っていよう
+⇒ 具体的なスケジュールは示せない。待って。
 ![w:850](./assets/support_ios.png)
 
 ---
