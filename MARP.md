@@ -12,7 +12,7 @@ theme: gaia
 
 ---
 ## 今日話すこと
-# dart:ffi の実装が始まった背景と課題
+# dart:ffi の実装背景と課題
 ---
 # FFI ？
 ---
@@ -27,12 +27,11 @@ theme: gaia
 # 自己紹介
 ---
 <!-- _header: 自己紹介 -->
-![bg right w:300](./assets/icon.jpg)
-## しみず なおき
-
-<br>
-
+![bg right w:350](./assets/icon.jpg)
+## @sensuikan1973
 <a href="https://github.com/sensuikan1973" target="_blank"><img src="assets/GitHub-icon.png" style="border:none;" alt="sensuikan1973 Github"></i></a>
+
+低レイヤの習熟度低いですが、諸事情で毎回必要になる運命にあるので、FFI について調べました
 
 ---
 <!-- _header: 自己紹介 -->
