@@ -231,8 +231,7 @@ Dart_SetField(Dart_Handle container, Dart_Handle name, Dart_Handle value);
 ```
 
 #### 👉 名前解決がキャッシュされない
-#### 👉 AOT コンパイラに厳しい
-##### (AOT コンパイラはもちろん C を見れないので、最悪の場合を想定しないといけない)
+#### 👉 AOT コンパイラに厳しい <br> <span style="font-size:27px;">(最悪の場合を想定したり、手動でアノテーションを付けてまわったりしないといけない) </span>
 
 ---
 <!-- _header: Flutter における Dart->C をどう実現するか？ -->
