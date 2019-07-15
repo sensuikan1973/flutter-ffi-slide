@@ -334,31 +334,6 @@ void main() {
 
 #### (Dart VM FFI の進行状況は [ココ](https://github.com/dart-lang/sdk/projects/13))
 ---
-# さて次は、<br>「FFI を提供する際の大変な点」の紹介
----
-<!-- _header: FFI を提供する際の大変な点 > dart:ffi の実装て何が難しいの？ -->
-# 【 3点を紹介 】
-# ◯ 型システム
----
-<!-- _header: FFI を提供する際の大変な点 > dart:ffi の実装て何が難しいの？ -->
-# 背景
-<br>
-
-## 「補完してほしいし、静的解析もほしいなー」とみんな思う
----
-![flutter_cfe](./assets/flutter-cfe.png)
-👉 [CFE](https://github.com/dart-lang/sdk/tree/master/pkg/front_end) に、FFI 用のカーネル変換を追加する必要がある
-👉 
-
-<!-- _footer: ([dart-lang compiler engineer mraleph | Introduction to Dart VM](https://mrale.ph/dartvm/) より引用) -->
-
----
-<!-- _header: dart:ffi の実装て何が難しいの？ -->
-# Dart からネイティブ型にアクセスする
----
-<!-- _header: dart:ffi の実装て何が難しいの？ -->
-# ああああ
----
 # ありがとうございました
 ---
 <!-- _class: default -->
