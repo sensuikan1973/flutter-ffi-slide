@@ -351,27 +351,45 @@ void main() {
 
 #### (Dart VM FFI の進行状況は [ココ](https://github.com/dart-lang/sdk/projects/13))
 ---
-# 最後に
+# さて、<br>次は「FFI 実装の難しさ」について
 ---
 # dart : ffi の実装て何が難しいの？
 ---
 <!-- _header: dart:ffi の実装て何が難しいの？ -->
 # 【 結論 】
-# Dart 型システムに対する、独自の拡張が必要になる点
+# Dart 型システムに対する、<br>独自の拡張が必要になる点
 ---
 <!-- _header: dart:ffi の実装て何が難しいの？ -->
-# 「補完してほしいし、静的解析もしてほしいなー」
-### とみんな思う
+# 背景
+
+<br>
+
+
+## 「補完してほしいし、静的解析もほしいなー」とみんな思う
 ---
 <!-- _header: dart:ffi の実装て何が難しいの？ -->
-## つまり、FFIの実装では、[CFE](https://github.com/dart-lang/sdk/tree/master/pkg/front_end) レベルでの追加のカーネル変換として、アナライザーレベルでのリンターとして、規則を適用しながら、Dart型システムへの独自の拡張を行う必要がある可能性があります。
+## [CFE](https://github.com/dart-lang/sdk/tree/master/pkg/front_end) レベルでの追加のカーネル変換, アナライザーレベルでのリンターとして、規則を適用しながら、Dart型システムへの独自の拡張を行う必要がある可能性があります。
 ---
 <!-- _header: dart:ffi の実装て何が難しいの？ -->
 # Dart からネイティブ型にアクセスする
 ---
-# まとめ
+<!-- _header: dart:ffi の実装て何が難しいの？ -->
+# ああああ
 ---
-ああああ
+## まとめ:「FFI のサポートが進んでいる理由と、<br>その難しさは？」
+
+<div style="font-size:45px;">
+<table>
+<tr>
+    <td>理由</td>
+    <td>主にパフォーマンスの観点から <br> Native Extension より <br>FFI が適しているため</td>
+</tr>
+<tr>
+    <td>難しさ</td>
+    <td>Dart 型システムに対する、<br>独自の拡張が必要になる点</td>
+</tr>
+</table>
+</div>
 
 ---
 # ありがとうございました
