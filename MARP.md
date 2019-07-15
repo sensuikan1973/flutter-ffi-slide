@@ -406,6 +406,7 @@ Dart VM の仕組みの話
   - [Native extensions for the standalone Dart VM](https://dart.dev/server/c-interop-native-extensions)
   - [Support for Dart Extensions](https://github.com/flutter/flutter/issues/2396)
 - [C & C++ interop using FFI](https://dart.dev/server/c-interop)
+  - [sdk/lib/ffi/](https://github.com/dart-lang/sdk/tree/master/sdk/lib/ffi)
   - [Dart Native platform ](https://dart.dev/platforms)
   - [dart:ffi sqllite sample](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/README.md)
 - [The Engine architecture](https://github.com/flutter/flutter/wiki/The-Engine-architecture)
