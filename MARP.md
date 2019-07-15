@@ -7,7 +7,7 @@ class: lead
 # See: https://github.com/marp-team/marp-vscode/issues/39
 theme: gaia
 ---
-# Flutter における FFI
+# Flutter/Dart における FFI
 <!-- _footer: Flutter Meetup Tokyo #10 -->
 
 ---
@@ -170,6 +170,8 @@ void isEven(Dart_NativeArguments arguments) {
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
 # さて、Flutter では？
 ---
+# 現状、Swift/Objective-C, Kotlin/Java を経由する必要がある
+---
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
 ![center](./assets/flutter_support_c_cpp.png)
 
@@ -268,7 +270,12 @@ void isEmailAddress(Dart_NativeArguments arguments)
 ---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
 # dart : ffi 👍
-<!-- _footer: ([内部実装](https://github.com/dart-lang/sdk/tree/master/sdk/lib/ffi)) -->
+
+<br>
+<br>
+<br>
+
+###### https://github.com/dart-lang/sdk/tree/master/sdk/lib/ffi
 
 ---
 <!-- _header: 利用者目線の Flutter/Dart における FFI -->
