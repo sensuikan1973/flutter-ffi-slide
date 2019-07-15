@@ -75,7 +75,6 @@ theme: gaia
 # Native Extension
 ---
 <!-- _header: Dart から C を呼ぶ方法 (これまで) -->
-<!-- _class: default -->
 #### Dart 側
 <br>
 
@@ -93,7 +92,6 @@ void hello() native "Hello";
 
 ---
 <!-- _header: Dart から C を呼ぶ方法 (これまで) -->
-<!-- _class: default -->
 #### C++ 側 <span style="font-size:24px;">(一部省略)</span>
 <!--
 #include <string.h>
