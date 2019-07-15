@@ -60,8 +60,6 @@ theme: gaia
 ![center w:800](./assets/architecture_marked.png)
 
 ---
-# 前置き
----
 <!-- _header: 前置き -->
 # 各言語の C 呼び出し
 ---
