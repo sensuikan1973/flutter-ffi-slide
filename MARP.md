@@ -229,8 +229,8 @@ void isEven(Dart_NativeArguments arguments) {
 ---
 <!-- _header: FFI の実装が進んでいる背景 > Flutter/Dart における Dart->C をどう実現するか？ -->
 <!-- _class: default -->
-# 【 理由 1 】
-# 名前ベースの API
+### 【 理由 1 】
+## 名前ベースの API
 
 ```
 // dart-lang/sdk/runtime/include/dart_api.h より引用
@@ -238,13 +238,15 @@ DART_EXPORT DART_WARN_UNUSED_RESULT Dart_Handle
 Dart_SetField(Dart_Handle container, Dart_Handle name, Dart_Handle value);
 ```
 
-#### 👉 AOT コンパイラさんには辛い
 #### 👉 名前解決がキャッシュされない
+#### 👉 AOT コンパイラに厳しい
+##### (AOT コンパイラはもちろん C を見れないので、最悪の場合を想定しないといけない)
+
 ---
 <!-- _header: FFI の実装が進んでいる背景 > Flutter における Dart->C をどう実現するか？ -->
 <!-- _class: default -->
-# 【 理由 2 】
-# Reflective Marshaling は効率良くない
+### 【 理由 2 】
+## Reflective Marshaling は効率良くない
 
 ```cpp
 void isEmailAddress(Dart_NativeArguments arguments)
