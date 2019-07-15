@@ -12,19 +12,11 @@ theme: gaia
 
 ---
 ## 今日話すこと
-# ◯ FFI の実装が進んでいる背景 (70%)
-# ◯ FFI を提供する際の大変な点 (30%)
+# FFI の実装が進んでいる理由は？
 
 ---
-<!-- _class: default -->
-### 【 結論 】
-
-## ◯ FFI の実装が進んでいる背景
-### 主にパフォーマンスの観点から、Native Extension より FFI が適しているため
-<br>
-
-## ◯ FFI を提供する際の大変な点
-### 型システムやプラットフォーム差異, 冗長性の排除など
+## 【 結論 】
+# 主にパフォーマンスの観点から、Native Extension より FFI が適しているため
 ---
 # FFI ？
 ---
@@ -146,7 +138,6 @@ Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_sco
 </div>
 
 👉 深いレベルで拡張可能
-👉 毎回名前解決する
 
 ---
 <!-- _header: FFI の実装が進んでいる背景 > Dart から C を呼ぶ方法 (これまで) -->
@@ -217,8 +208,6 @@ void isEven(Dart_NativeArguments arguments) {
 
 ---
 # こういう要望にどう応えるか？
----
-# Flutter/Dart における <br>　Dart->C をどう実現するか？
 ---
 <!-- _header: FFI の実装が進んでいる背景 > Flutter/Dart における Dart-C をどう実現するか？ -->
 # ① C++ でメソッドチャンネルを提供する？
@@ -377,21 +366,20 @@ void main() {
 
 <div style="font-size: 20px;">
 
-- [Dart VM FFI Vision](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e)
-  - [Introduction to Dart VM](https://mrale.ph/dartvm/)
+- **[Dart VM FFI Vision](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e)**
+  - **[Introduction to Dart VM](https://mrale.ph/dartvm/)**
   - [Design and implement Dart VM FFI](https://github.com/dart-lang/sdk/issues/34452)
   - [Flutter Support integrating with C/C++ in plugin framework](https://github.com/flutter/flutter/issues/7053)
   - [Native extensions for the standalone Dart VM](https://dart.dev/server/c-interop-native-extensions)
   - [Support for Dart Extensions](https://github.com/flutter/flutter/issues/2396)
 - [C & C++ interop using FFI](https://dart.dev/server/c-interop)
-  - [sdk/lib/ffi/](https://github.com/dart-lang/sdk/tree/master/sdk/lib/ffi)
+  - **[sdk/lib/ffi/](https://github.com/dart-lang/sdk/tree/master/sdk/lib/ffi)**
   - [Dart Native platform ](https://dart.dev/platforms)
   - [dart:ffi sqllite sample](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/README.md)
 - [The Engine architecture](https://github.com/flutter/flutter/wiki/The-Engine-architecture)
   - [Writing custom platform-specific code](https://flutter.io/platform-channels/)
   - [Custom Flutter Engine Embedders](https://github.com/flutter/flutter/wiki/Custom-Flutter-Engine-Embedders)
 - [Language features for FFI](https://github.com/dart-lang/language/issues/411)
-- [compiler engineer "mraleph"](https://mrale.ph/)
 - [sensuikan1973/flutter-ffi-slide](https://github.com/sensuikan1973/flutter-ffi-slide)
 - [sensuikan1973/Dart_FFI_Hello_World](https://github.com/sensuikan1973/Dart_FFI_Hello_World)
 </div>
