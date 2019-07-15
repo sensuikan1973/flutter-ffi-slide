@@ -28,7 +28,7 @@ theme: gaia
 #####  今回は C 呼び出しの話
 ###### (C -> Dart の話は省きます)
 ---
-# ひとまず自己紹介
+# 自己紹介
 ---
 <!-- _header: 自己紹介 -->
 ![bg right w:300](./assets/icon.jpg)
