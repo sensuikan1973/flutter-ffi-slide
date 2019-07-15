@@ -341,6 +341,12 @@ void main() {
 # 👍
 ---
 # 意欲的な方は、<br>ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
+
+<br>
+<br>
+
+#### (Dart VM FFI の進行状況は [ココ](https://github.com/dart-lang/sdk/projects/13))
+
 ---
 # ありがとうございました ？
 ---
