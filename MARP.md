@@ -246,6 +246,7 @@ void isEven(Dart_NativeArguments arguments) {
 ---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
 # ① C++ でメソッドチャンネルを提供する？
+<!-- _footer: (参考: [issues/7053](https://github.com/flutter/flutter/issues/7053#issuecomment-415161464))-->
 ---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
 # 😣
