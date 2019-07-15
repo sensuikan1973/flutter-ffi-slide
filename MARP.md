@@ -12,7 +12,7 @@ theme: gaia
 
 ---
 # 【 結論 】
-# Native Extension よりパフォーマンス良いから
+# 主にパフォーマンスの観点から <br> Native Extension より <br>FFI が適していると判断されたため
 ---
 # FFI ？
 ---
@@ -237,7 +237,7 @@ DART_EXPORT DART_WARN_UNUSED_RESULT Dart_Handle
 Dart_SetField(Dart_Handle container, Dart_Handle name, Dart_Handle value);
 ```
 
-#### 👉 AOT に不親切
+#### 👉 AOT コンパイラさんには辛い
 #### 👉 名前解決がキャッシュされない
 ---
 <!-- _header: Flutter における Dart->C をどう実現するか？ -->
@@ -329,61 +329,36 @@ void main() {
 ---
 # 👍
 ---
-# 意欲的な方は、<br>ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
+# ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
 
 <br>
 <br>
 
 #### (Dart VM FFI の進行状況は [ココ](https://github.com/dart-lang/sdk/projects/13))
-
 ---
 # 最後に
 ---
-# dart : ffi の提供て何が難しいの？
+# dart : ffi の実装て何が難しいの？
 ---
-
-# その前に確認
+<!-- _header: dart:ffi の実装て何が難しいの？ -->
+# 【 結論 】
+# Dart 型システムに対する、独自の拡張が必要になる点
 ---
-
-##  そもそも Dart がどうやって動いてるか、本当にちゃんと説明できますか？
----
-
-Dart VM の仕組みの話
-
----
-
-# さて本筋に戻る
----
-
-# FFI の提供って何が難しいの？
----
-
+<!-- _header: dart:ffi の実装て何が難しいの？ -->
 # 「補完してほしいし、静的解析もしてほしいなー」
 ### とみんな思う
 ---
-
-# それって難しいんだよって話
----
-
-# なんで？
----
-
-## 「必要な情報を静的な型に encode し、追加の型ルールを適用する」<br>ための型システム機能がないから
-
----
-
+<!-- _header: dart:ffi の実装て何が難しいの？ -->
 ## つまり、FFIの実装では、[CFE](https://github.com/dart-lang/sdk/tree/master/pkg/front_end) レベルでの追加のカーネル変換として、アナライザーレベルでのリンターとして、規則を適用しながら、Dart型システムへの独自の拡張を行う必要がある可能性があります。
 ---
-
-# 🤷🤷🤷
----
-
+<!-- _header: dart:ffi の実装て何が難しいの？ -->
 # Dart からネイティブ型にアクセスする
-
+---
+# まとめ
 ---
 
+---
 # ありがとうございました
-
 ---
 <!-- _class: default -->
 ###### リンク一覧
