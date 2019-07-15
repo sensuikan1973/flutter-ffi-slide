@@ -2,18 +2,18 @@
 # yarn lockfile v1
 
 
-"@marp-team/marp-cli@0.12.0":
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/@marp-team/marp-cli/-/marp-cli-0.12.0.tgz#abf4c56d9e767a2ca97852ed03257229b00641fc"
-  integrity sha512-gZ1nMYOAVifH3WV2oYnTJcUw4RS1ve2pRCLYonkTJRklZT64oxjTiIt+8glmhBN4I7SJ43f+tSUU6KLxEr87BA==
+"@marp-team/marp-cli@0.12.1":
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/@marp-team/marp-cli/-/marp-cli-0.12.1.tgz#7203906041a96248e85f02db7415fabcd2ac8264"
+  integrity sha512-dgWu9p0Yau+2HWK9XSNGIm/hByCn2nDxg6zPn961zNduzypJVpu1TRtt0eEBAI167bd/VzJB7y7yHbGEO+6OSQ==
   dependencies:
-    "@marp-team/marp-core" "^0.11.0"
-    "@marp-team/marpit" "^1.2.0"
+    "@marp-team/marp-core" "^0.12.0"
+    "@marp-team/marpit" "^1.3.0"
     "@marp-team/pptx" "^0.1.0"
     carlo "^0.9.46"
     chalk "^2.4.2"
     chokidar "^3.0.2"
-    chrome-launcher "^0.10.7"
+    chrome-launcher "^0.11.1"
     cosmiconfig "^5.2.1"
     express "^4.17.1"
     get-stdin "^7.0.0"
@@ -23,7 +23,7 @@
     mkdirp "^0.5.1"
     os-locale "^4.0.0"
     pkg-up "^3.1.0"
-    portfinder "^1.0.20"
+    portfinder "^1.0.21"
     puppeteer-core "~1.17.0"
     serve-index "^1.9.1"
     strip-ansi "^5.2.0"
@@ -32,34 +32,34 @@
     ws "^7.1.0"
     yargs "^13.2.4"
 
-"@marp-team/marp-core@^0.11.0":
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/@marp-team/marp-core/-/marp-core-0.11.0.tgz#95bf55df25d4149eb6ac75201644b29a50b7068b"
-  integrity sha512-KEyBrej4WvkYebm8hVIAxvkTCAb01Ri5rSKXZ4xmIYD4K2/pzqV7hMDYnn8ui3Gh0XpWxWMOq/K9b4jkRNwq/g==
+"@marp-team/marp-core@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@marp-team/marp-core/-/marp-core-0.12.0.tgz#cc6d5587315a7e08e93212173969b9838e790dca"
+  integrity sha512-YxLK7BbVQPMW8GZzJV66F+QizoZMqsDpsk+xFyNU4X2oICcJwLn56HVcmrX0x7clNxjWs7YGzLJeW1fC4liEvA==
   dependencies:
-    "@marp-team/marpit" "^1.2.0"
-    "@marp-team/marpit-svg-polyfill" "^1.1.0"
+    "@marp-team/marpit" "^1.3.0"
+    "@marp-team/marpit-svg-polyfill" "^1.1.1"
     emoji-regex "^8.0.0"
     highlight.js "^9.15.8"
     katex "^0.10.2"
     markdown-it-emoji "^1.4.0"
-    twemoji "^12.0.4"
+    twemoji "^12.1.2"
     xss "^1.0.6"
 
-"@marp-team/marpit-svg-polyfill@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@marp-team/marpit-svg-polyfill/-/marpit-svg-polyfill-1.1.0.tgz#dd7546305fc8819465d88e3800cbb42a741f1f7f"
-  integrity sha512-xCY6QfQo0JdcCOOwgjUnsyQpTA/d4NAFicARFkd+M9kFuzRa+UwHohOAb6SfXDRmH6wlKwI/PiyDgu2jEfsnrw==
+"@marp-team/marpit-svg-polyfill@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@marp-team/marpit-svg-polyfill/-/marpit-svg-polyfill-1.1.1.tgz#b0b999243b9fd4d09ab3160260c1748683eef4ab"
+  integrity sha512-OC9ORNDHvnp2mTOSsB7ZnrD1Seuzz1j9lznWxoxoFu+V+8RkGhxjLxHXlPrcBqF2wbId99aSEaYuKZthPWsE0g==
 
-"@marp-team/marpit@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@marp-team/marpit/-/marpit-1.2.0.tgz#dd383fa7bdac8c515aa9c1155232d541a187f7ad"
-  integrity sha512-BpgoHjBNnmRm9rI67z7cGUZhfXrRhMSXyt+b9P05M1BcIpzwUp3y+hF4nec4/1qzjCp89d/Hx7YLncWLGTOQOA==
+"@marp-team/marpit@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@marp-team/marpit/-/marpit-1.3.0.tgz#a08dd918ff506d920d3cbcd432edabe26263ab77"
+  integrity sha512-brTybzSI3mfSU96X3SegAtoG8AFsSS7xFrFCD68weomCEgXlXa5YhgEHCU0AKLuX7Z/vxCAYnnFpQGKQYCapCw==
   dependencies:
     color-string "^1.5.3"
     js-yaml "^3.13.0"
     lodash.kebabcase "^4.1.1"
-    markdown-it "^8.4.2"
+    markdown-it "^9.0.0"
     markdown-it-front-matter "^0.1.2"
     postcss "^7.0.17"
 
@@ -566,13 +566,13 @@ chownr@^1.1.1:
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.1.2.tgz#a18f1e0b269c8a6a5d3c86eb298beb14c3dd7bf6"
   integrity sha512-GkfeAQh+QNy3wquu9oIZr6SS5x7wGdSgNQvD10X3r+AZr1Oys22HW8kAmDMvNg2+Dm0TeGaEuO8gFwdBXxwO8A==
 
-chrome-launcher@^0.10.7:
-  version "0.10.7"
-  resolved "https://registry.yarnpkg.com/chrome-launcher/-/chrome-launcher-0.10.7.tgz#5e2a9e99f212e0501d9c7024802acd01a812f5d5"
-  integrity sha512-IoQLp64s2n8OQuvKZwt77CscVj3UlV2Dj7yZtd1EBMld9mSdGcsGy9fN5hd/r4vJuWZR09it78n1+A17gB+AIQ==
+chrome-launcher@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/chrome-launcher/-/chrome-launcher-0.11.1.tgz#ccc5bd971c76cdd263d17acacaeb762454c1af92"
+  integrity sha512-Om9LtiJ+FIh8sfhx8HaN4Petj75dIVeTBNUbXIXPIS5W3y9dyNRGmChcl0Z5trQkcy+8XDJA3NWicYdpZeF+DA==
   dependencies:
     "@types/node" "*"
-    is-wsl "^1.1.0"
+    is-wsl "^2.1.0"
     lighthouse-logger "^1.0.0"
     mkdirp "0.5.1"
     rimraf "^2.6.1"
@@ -1818,11 +1818,6 @@ is-windows@^1.0.2:
   resolved "https://registry.yarnpkg.com/is-windows/-/is-windows-1.0.2.tgz#d1850eb9791ecd18e6182ce12a30f396634bb19d"
   integrity sha512-eXK1UInq2bPmjyX6e3VHIzMLobc4J94i4AWn+Hpq3OU5KkrRC96OAcR3PRJ/pGu6m8TRnBHP9dkXQVsT/COVIA==
 
-is-wsl@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/is-wsl/-/is-wsl-1.1.0.tgz#1f16e4aa22b04d1336b66188a66af3c600c3a66d"
-  integrity sha1-HxbkqiKwTRM2tmGIpmrzxgDDpm0=
-
 is-wsl@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/is-wsl/-/is-wsl-2.1.0.tgz#94369bbeb2249ef07b831b1b08590e686330ccbb"
@@ -2093,10 +2088,10 @@ markdown-it-front-matter@^0.1.2:
   resolved "https://registry.yarnpkg.com/markdown-it-front-matter/-/markdown-it-front-matter-0.1.2.tgz#e50bf56e77e6a4f5ac4ffa894d4d45ccd9896b20"
   integrity sha1-5Qv1bnfmpPWsT/qJTU1FzNmJayA=
 
-markdown-it@^8.4.2:
-  version "8.4.2"
-  resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-8.4.2.tgz#386f98998dc15a37722aa7722084f4020bdd9b54"
-  integrity sha512-GcRz3AWTqSUphY3vsUqQSFMbgR38a4Lh3GWlHRh/7MRwz8mcu9n2IO7HOh+bXHrR9kOPDl5RNCaEsrneb+xhHQ==
+markdown-it@^9.0.0:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-9.0.1.tgz#aafe363c43718720b6575fd10625cde6e4ff2d47"
+  integrity sha512-XC9dMBHg28Xi7y5dPuLjM61upIGPJG8AiHNHYqIaXER2KNnn7eKnM5/sF0ImNnyoV224Ogn9b1Pck8VH4k0bxw==
   dependencies:
     argparse "^1.0.7"
     entities "~1.1.1"
@@ -2641,10 +2636,10 @@ pn@^1.1.0:
   resolved "https://registry.yarnpkg.com/pn/-/pn-1.1.0.tgz#e2f4cef0e219f463c179ab37463e4e1ecdccbafb"
   integrity sha512-2qHaIQr2VLRFoxe2nASzsV6ef4yOOH+Fi9FBOVH6cqeSgUnoyySPZkxzLuzd+RYOQTRpROA0ztTMqxROKSb/nA==
 
-portfinder@^1.0.20:
-  version "1.0.20"
-  resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.20.tgz#bea68632e54b2e13ab7b0c4775e9b41bf270e44a"
-  integrity sha512-Yxe4mTyDzTd59PZJY4ojZR8F+E5e97iq2ZOHPz3HDgSvYC5siNad2tLooQ5y5QHyQhc3xVqvyk/eNA3wuoa7Sw==
+portfinder@^1.0.21:
+  version "1.0.21"
+  resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.21.tgz#60e1397b95ac170749db70034ece306b9a27e324"
+  integrity sha512-ESabpDCzmBS3ekHbmpAIiESq3udRsCBGiBZLsC+HgBKv2ezb0R4oG+7RnYEVZ/ZCfhel5Tx3UzdNWA0Lox2QCA==
   dependencies:
     async "^1.5.2"
     debug "^2.2.0"
@@ -3422,7 +3417,7 @@ twemoji-parser@12.1.0:
   resolved "https://registry.yarnpkg.com/twemoji-parser/-/twemoji-parser-12.1.0.tgz#018fb2a67f4747d9decfbf2bb4372995fc568997"
   integrity sha512-jaHYltumP/E8nR+YzRrY753j9dEpL3zH8+pDXgf9h/10wHeW/9IIjs6mZ1Z/Syh8rIaOQObev1BAX/AinFmuOg==
 
-twemoji@^12.0.4:
+twemoji@^12.1.2:
   version "12.1.2"
   resolved "https://registry.yarnpkg.com/twemoji/-/twemoji-12.1.2.tgz#13a685c3732c196e04f762159072cf66c04d4cec"
   integrity sha512-myi1YKL4nXBWorlmHDxHxHTCpel0e0jGtWQwwab0XyCAf3r9PnkZX0c+IAnPW+K6+TKXBJulMRPifeMhiPKYuw==

@@ -7,8 +7,24 @@ class: lead
 # See: https://github.com/marp-team/marp-vscode/issues/39
 theme: gaia
 ---
-# Flutter における FFI
-<!-- _footer: Flutter Meetup Tokyo #10 -->
+# Flutter/Dart で <br>FFI のサポートが進んでいる理由と、<br>その難しさは？
+<!-- _footer: Flutter Meetup Tokyo #10 ： しみずなおき-->
+
+---
+## 【 結論 】
+
+<div style="font-size:45px;">
+<table>
+<tr>
+    <td>理由</td>
+    <td>主にパフォーマンスの観点から <br> Native Extension より <br>FFI が適しているため</td>
+</tr>
+<tr>
+    <td>難しさ</td>
+    <td>Dart 型システムに対する、<br>独自の拡張が必要になる点</td>
+</tr>
+</table>
+</div>
 
 ---
 # FFI ？
@@ -19,20 +35,10 @@ theme: gaia
 
 <br>
 
-#####  今回は C++/C の呼び出しの話
+#####  今回は C 呼び出しの話
+###### (C -> Dart の話は省きます)
 ---
-# 今日話すこと
----
-# ○ <span style="color:green;">利用者目線の</span>
-# ○ <span style="color:purple;">提供者目線の</span>
-
-<br>
-
-## Flutter/Dart における C 呼び出し
----
-# その前に
----
-# 自己紹介
+# ひとまず自己紹介
 ---
 <!-- _header: 自己紹介 -->
 ![bg right w:300](./assets/icon.jpg)
@@ -60,8 +66,6 @@ theme: gaia
 ![center w:800](./assets/architecture_marked.png)
 
 ---
-# 前置き
----
 <!-- _header: 前置き -->
 # 各言語の C 呼び出し
 ---
@@ -78,45 +82,18 @@ theme: gaia
 | Swift | <div style="text-align:left">[そのままいける](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/using_imported_c_functions_in_swift)し、[カスタム](https://developer.apple.com/documentation/swift/objective-c_and_c_code_customization/customizing_your_c_code_for_swift)も可能 </div> |
 
 ---
-<!-- _header: 前置き -->
-<!-- _class: default -->
-### 例: Go -> C
-<div style="font-size:35px;">
-
-```go
-package main
-
-/*
-#include <stdlib.h>
-#include <stdio.h>
-
-void hello() {
-    printf("Hello\n");
-}
-*/
-import "C"
-
-func main() {
-    C.hello()
-}
-
-```
-</div>
-
----
 # Dart は？
 ---
-# こっから本題
+# Dart から C を呼ぶ方法 <br> (これまで)
 ---
-## <span style="color:green;">利用者目線の</span> Flutter/Dart における FFI
----
-# Dart から C 呼ぶには？ <br> (これまで)
----
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
+<!-- _header: Dart から C を呼ぶ方法 (これまで) -->
 # Native Extension
 ---
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
+<!-- _header: Dart から C を呼ぶ方法 (これまで) -->
+<!-- _class: default -->
 #### Dart 側
+<br>
+
 <div style="font-size:35px;">
 
 ```dart
@@ -130,10 +107,9 @@ void hello() native "Hello";
 <span style="font-size:30px;">参考: [dart-lang sample_extension](https://github.com/dart-lang/sdk/tree/master/samples/sample_extension)</span>
 
 ---
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
+<!-- _header: Dart から C を呼ぶ方法 (これまで) -->
 <!-- _class: default -->
-#### C++ 側
-
+#### C++ 側 <span style="font-size:24px;">(一部省略)</span>
 <!--
 #include <string.h>
 #include <stdlib.h>
@@ -142,11 +118,9 @@ void hello() native "Hello";
 #include "include/dart_native_api.h"
 -->
 
-<div style="font-size:24px;">
+<div style="font-size:20px;">
 
 ```cpp
-Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_scope);
-
 DART_EXPORT Dart_Handle sample_hello_Init(Dart_Handle parent_library) {
   if (Dart_IsError(parent_library)) return parent_library;
   Dart_Handle result_code = Dart_SetNativeResolver(parent_library, ResolveName, NULL);
@@ -173,10 +147,13 @@ Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_sco
 ```
 </div>
 
+👉 深いレベルで拡張可能
+👉 毎回名前解決する
+
 ---
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
+<!-- _header: Dart から C を呼ぶ方法 (これまで) -->
 <!-- _class: default -->
-### 例をもう一個: 偶数判定
+#### わかりやすく例をもう一個
 ```cpp
 void isEven(Dart_NativeArguments arguments) {
   Dart_EnterScope();
@@ -190,25 +167,25 @@ void isEven(Dart_NativeArguments arguments) {
   Dart_ExitScope();
 }
 ```
-
-👉 深いレベルで拡張可能
 👉 引数と返り値の型情報が静的に定義されていない
 
 ---
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
 # さて、Flutter では？
 ---
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
+<!-- _header: Flutter から C を呼ぶ方法 -->
+# 現状、Swift/Objective-C, Kotlin/Java を経由する必要がある
+---
+<!-- _header: Flutter から C を呼ぶ方法 -->
 ![center](./assets/flutter_support_c_cpp.png)
 
 ---
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
+<!-- _header: Flutter から C を呼ぶ方法 -->
 # たくさんの 👍 の思いは？
 ---
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
+<!-- _header: Flutter から C を呼ぶ方法 -->
 # ① 既存ソフトをより統合しやすくしてほしい
 ---
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+<!-- _header: Flutter から C を呼ぶ方法 -->
 <!-- _class: default -->
 <br>
 <br>
@@ -220,18 +197,19 @@ void isEven(Dart_NativeArguments arguments) {
 
 # ◯ 低オーバーヘッドがいい
 ---
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
-# SQLite
+<!-- _header: Flutter から C を呼ぶ方法 -->
+## SQLite
 
-# Realm
+## Realm
 
-# OpenCV
+## OpenCV
 
-# crypto, ssh ... libraries
+## crypto, ssh ... libraries
+
 などが具体例として挙げられている
 
 ---
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
+<!-- _header: Flutter から C を呼ぶ方法 -->
 # ② 大量のデータを効率よく出し入れしたい
 
 <br>
@@ -242,26 +220,27 @@ void isEven(Dart_NativeArguments arguments) {
 ---
 # こういう要望にどう応えるか？
 ---
-## <span style="color:purple;">提供者目線の</span> Flutter/Dart における FFI
+# Flutter/Dart における <br>　Dart->C をどう実現するか？
 ---
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+<!-- _header: Flutter/Dart における Dart-C をどう実現するか？ -->
 # ① C++ でメソッドチャンネルを提供する？
+<!-- _footer: (参考: [issues/7053](https://github.com/flutter/flutter/issues/7053#issuecomment-415161464))-->
+
 ---
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+<!-- _header: Flutter/Dart における Dart->C をどう実現するか？ -->
 # 😣
 ---
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+<!-- _header: Flutter/Dart における Dart->C をどう実現するか？ -->
 # メソッドチャンネルがオーバーヘッド高いので、目的に合わない
 ---
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+<!-- _header: Flutter/Dart における Dart->C をどう実現するか？ -->
 # ② Native Exstention でサポートできるようにする？
 ---
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+<!-- _header: Flutter/Dart における Dart->C をどう実現するか？ -->
 # 😣
 ---
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+<!-- _header: Flutter/Dart における Dart->C をどう実現するか？ -->
 <!-- _class: default -->
-
 # 【 理由 1 】
 # 名前ベースの API
 
@@ -271,10 +250,10 @@ DART_EXPORT DART_WARN_UNUSED_RESULT Dart_Handle
 Dart_SetField(Dart_Handle container, Dart_Handle name, Dart_Handle value);
 ```
 
-#### 👉 AOT に不親切
+#### 👉 AOT コンパイラさんには辛い
 #### 👉 名前解決がキャッシュされない
 ---
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+<!-- _header: Flutter における Dart->C をどう実現するか？ -->
 <!-- _class: default -->
 # 【 理由 2 】
 # Reflective Marshaling は効率良くない
@@ -289,21 +268,37 @@ void isEmailAddress(Dart_NativeArguments arguments)
 #### ⇒ その点は FFI が優れている ✌️
 
 ---
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+<!-- _header: Flutter における Dart->C をどう実現するか？ -->
 # Flutter/Dart チームが採った方法は？
 ---
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
 # dart : ffi 👍
+
+<br>
+<br>
+<br>
+
+###### https://github.com/dart-lang/sdk/tree/master/sdk/lib/ffi
+
 ---
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+<!-- _header: dart:ffi の始まり -->
+## [Google I/O'19](https://www.youtube.com/watch?v=J5DQRPRBiFI) でも言及あり
+![center](./assets/dart_session_io19.png)
+<b style="text-align:center">
+
+> We are working on a new foreign function interface.
+> This should help you reuse existing C and C++ code,
+> which is important for some critical stuff
+</b>
+
+---
+<!-- _header: dart:ffi の始まり -->
 #### ちなみに
 > we expect that moving Flutter Engine from C API to FFI should significantly reduce overheads associated with crossing the boundary between Dart and native code
 ---
+<!-- _header: dart:ffi の始まり -->
 # 結果どう使えるのか？
 ---
-## <span style="color:green;">利用者目線の</span> Flutter/Dart における FFI
----
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
+<!-- _header: dart:ffi の始まり -->
 <div style="font-size:35px;">
 
 ```dart
@@ -326,19 +321,20 @@ void main() {
 </div>
 
 ---
+<!-- _header: dart:ffi の始まり -->
 # そして、先週、、、
 ---
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
-# 2.4 に Preview 版が入った !
+<!-- _header: dart:ffi の始まり -->
+# Flutter stable 版に preview が!
 
 <br>
 
-#### (Flutter/Android での試験的サポートも始まっている)
+#### (Android のみの試験的なもの)
 ---
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
+<!-- _header: dart:ffi の始まり -->
 # どんな感じの構成になるのか
 ---
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
+<!-- _header: dart:ffi の始まり -->
 ![w:1100](./assets/dart_ffi_architecture.svg)
 
 <!-- _footer: ([dart-lang/sdk/samples/ffi/sqlite/docs/sqlite-tutorial.md](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md) より引用) -->
@@ -346,72 +342,37 @@ void main() {
 ---
 # 👍
 ---
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
-## [Google I/O'19](https://www.youtube.com/watch?v=J5DQRPRBiFI) でも言及あり
-![center](./assets/dart_session_io19.png)
-<b style="text-align:center">
+# ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
 
-> We are working on a new foreign function interface.
-> This should help you reuse existing C and C++ code,
-> which is important for some critical stuff
-</b>
+<br>
+<br>
 
+#### (Dart VM FFI の進行状況は [ココ](https://github.com/dart-lang/sdk/projects/13))
 ---
-# 意欲的な方は、<br>ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
+# 最後に
 ---
-# ありがとうございました ？
+# dart : ffi の実装て何が難しいの？
 ---
-# ✋
+<!-- _header: dart:ffi の実装て何が難しいの？ -->
+# 【 結論 】
+# Dart 型システムに対する、独自の拡張が必要になる点
 ---
-# こっからが本当の本題です 🙌
----
-## <span style="color:purple;">提供者目線の</span> Flutter/Dart における FFI
-のもうちょっと深いところ
-
----
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
-# FFI の提供、具体的に何が難しいの？
----
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
-# その前に確認
----
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
-##  そもそも Dart がどうやって動いてるか、本当にちゃんと説明できますか？
----
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
-Dart VM の仕組みの話
-
----
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
-# さて本筋に戻る
----
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
-# FFI の提供って何が難しいの？
----
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
+<!-- _header: dart:ffi の実装て何が難しいの？ -->
 # 「補完してほしいし、静的解析もしてほしいなー」
 ### とみんな思う
 ---
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
-# それって難しいんだよって話
+<!-- _header: dart:ffi の実装て何が難しいの？ -->
+## つまり、FFIの実装では、[CFE](https://github.com/dart-lang/sdk/tree/master/pkg/front_end) レベルでの追加のカーネル変換として、アナライザーレベルでのリンターとして、規則を適用しながら、Dart型システムへの独自の拡張を行う必要がある可能性があります。
 ---
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
-# なんで？
+<!-- _header: dart:ffi の実装て何が難しいの？ -->
+# Dart からネイティブ型にアクセスする
 ---
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
-## 「必要な情報を静的な型に encode し、追加の型ルールを適用する」<br>ための型システム機能がないから
+# まとめ
+---
+ああああ
 
 ---
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
-## つまり、FFIの実装では、[CFE](https://github.com/dart-lang/sdk/tree/master/pkg/front_end) sレベルでの追加のカーネル変換として、アナライザーレベルでのリンターとして、規則を適用しながら、Dart型システムへの独自の拡張を行う必要がある可能性があります。
----
-<!-- _header: 提供者目線の Flutter/Dart における FFI -->
-# 🤷🤷🤷
-
----
-
 # ありがとうございました
-
 ---
 <!-- _class: default -->
 ###### リンク一覧
@@ -425,6 +386,7 @@ Dart VM の仕組みの話
   - [Native extensions for the standalone Dart VM](https://dart.dev/server/c-interop-native-extensions)
   - [Support for Dart Extensions](https://github.com/flutter/flutter/issues/2396)
 - [C & C++ interop using FFI](https://dart.dev/server/c-interop)
+  - [sdk/lib/ffi/](https://github.com/dart-lang/sdk/tree/master/sdk/lib/ffi)
   - [Dart Native platform ](https://dart.dev/platforms)
   - [dart:ffi sqllite sample](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/README.md)
 - [The Engine architecture](https://github.com/flutter/flutter/wiki/The-Engine-architecture)
