@@ -12,7 +12,7 @@ theme: gaia
 
 ---
 ## 今日話すこと
-# dart:ffi が進んでいる背景と課題
+# dart:ffi の実装が始まった背景と課題
 ---
 # FFI ？
 ---
@@ -207,10 +207,17 @@ void isEven(Dart_NativeArguments arguments) {
 # こういう要望にどう応えるか？
 ---
 <!-- _header: Flutter/Dart における Dart->C をどう実現するか？ -->
-# ② Native Exstention でサポートできるようにする？
+## 「Native Exstention でいいんじゃないの...?」
+---
+![w:1000](./assets/support_native_extensions_issue.png)
+
 ---
 <!-- _header: Flutter/Dart における Dart->C をどう実現するか？ -->
 # 😣
+
+<br>
+
+###### ⇒ [Dart VM FFI Vision](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e) に理由が述べられていた
 ---
 <!-- _header: Flutter/Dart における Dart->C をどう実現するか？ -->
 <!-- _class: default -->
@@ -279,8 +286,7 @@ import "dart:ffi" as ffi;
 import 'dart:io' show Platform;
 
 void main() {
-  final libHelloWorld = ffi.DynamicLibrary.open(
-  	"./libHelloWorld.dylib");
+  final libHelloWorld = ffi.DynamicLibrary.open("./libHelloWorld.dylib");
   final helloWorld = libHelloWorld.lookupFunction
   	<ffi.Void Function(), void Function()>("helloWorld");
 
