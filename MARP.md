@@ -361,7 +361,7 @@ void main() {
 
 ---
 <!-- _header: dart:ffi -->
-#### その他タスクの詳細は <br>[Dart VM FFI projects](https://github.com/dart-lang/sdk/projects/13) を参照
+### その他タスクの詳細は <br>[Dart VM FFI projects](https://github.com/dart-lang/sdk/projects/13) を参照
 
 ---
 # ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
