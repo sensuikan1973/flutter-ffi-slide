@@ -355,7 +355,13 @@ void main() {
 
 ---
 <!-- _header: dart:ffi -->
-#### その他 VM の実装タスクの詳細は <br>[Dart VM FFI projects](https://github.com/dart-lang/sdk/projects/13) を参照
+### 4: 変更/削除時の HotReload 下での挙動は..?
+![w:600](./assets/callbacks_hot_reload.png)
+![w:650](./assets/flutter-cfe.png)
+
+---
+<!-- _header: dart:ffi -->
+#### その他タスクの詳細は <br>[Dart VM FFI projects](https://github.com/dart-lang/sdk/projects/13) を参照
 
 ---
 # ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
