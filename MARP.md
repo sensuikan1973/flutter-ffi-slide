@@ -32,7 +32,6 @@ theme: gaia
 <h1>
   <span style="color:red;">F</span>oreign <span style="color:red">f</span>unction <span style="color:red">i</span>nterface</span>
 </h1>
-
 <br>
 
 #####  今回は C 呼び出しの話
