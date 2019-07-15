@@ -252,7 +252,7 @@ void isEmailAddress(Dart_NativeArguments arguments)
 `void` `arguments` 👀
 
 #### ⇒ 引数/返り値が静的に型付けされた上での Marshaling の方が効率良い
-#### ⇒ その点は FFI が優れている ✌️
+#### ⇒ その点は FFI が優れている
 
 ---
 <!-- _header: FFI の実装が進んでいる背景 > Flutter における Dart->C をどう実現するか？ -->
@@ -283,10 +283,12 @@ void isEmailAddress(Dart_NativeArguments arguments)
 > we expect that moving Flutter Engine from C API to FFI should significantly reduce overheads associated with crossing the boundary between Dart and native code
 ---
 <!-- _header: FFI の実装が進んでいる背景 > dart:ffi の始まり -->
-# 結果どう使えるのか？
+# どう使えるのか？
 ---
 <!-- _header: FFI の実装が進んでいる背景 > dart:ffi の始まり -->
 <div style="font-size:35px;">
+
+👍
 
 ```dart
 import "dart:ffi" as ffi;
@@ -319,7 +321,7 @@ void main() {
 #### (Android のみの試験的なもの)
 ---
 <!-- _header: FFI の実装が進んでいる背景 > dart:ffi の始まり -->
-# どんな感じの構成になるのか
+# どういう構成になるのか
 ---
 <!-- _header: FFI の実装が進んでいる背景 > dart:ffi の始まり -->
 ![w:1100](./assets/dart_ffi_architecture.svg)
@@ -327,12 +329,16 @@ void main() {
 <!-- _footer: ([dart-lang/sdk/samples/ffi/sqlite/docs/sqlite-tutorial.md](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md) より引用) -->
 
 ---
+<!-- _header: FFI の実装が進んでいる背景 > dart:ffi の始まり -->
+## もちろん課題は多い
+
+---
 # ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
 
 <br>
 <br>
 
-#### (Dart VM FFI の進行状況は [ココ](https://github.com/dart-lang/sdk/projects/13))
+#### ([課題](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e#design-sketch) は多いです。Dart VM FFI の進行状況は [ココ](https://github.com/dart-lang/sdk/projects/13))
 ---
 # ありがとうございました
 ---
