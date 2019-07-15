@@ -138,6 +138,7 @@ Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_sco
 </div>
 
 👉 深いレベルで拡張可能
+👉 都度 `ResolveName` する
 
 ---
 <!-- _header: FFI の実装が進んでいる背景 > Dart から C を呼ぶ方法 (これまで) -->
