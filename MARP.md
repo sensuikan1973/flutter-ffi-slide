@@ -321,16 +321,9 @@ void main() {
 <!-- _footer: ([dart-lang/sdk/samples/ffi/sqlite/docs/sqlite-tutorial.md](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md) より引用) -->
 
 ---
-## MVP 向けの課題をいくつか紹介
+## 課題をいくつか紹介
 
-<br>
-<br>
-<span style="font-size:20px;">
-
-*MVP= Minimum Viable Product
-</span>
-
-<!-- _footer: 参考: [design-scketch](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e#design-sketch), [sqlite sample](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md#current-dartffi-development-status) -->
+<!-- _footer: 参考: [Dart VM FFI milestone](https://github.com/dart-lang/sdk/projects/13), [design-scketch](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e#design-sketch), [sqlite sample](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md#current-dartffi-development-status) -->
 
 ---
 <!-- _header: dart:ffi -->
