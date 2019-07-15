@@ -361,11 +361,8 @@ void main() {
 👉 [CFE](https://github.com/dart-lang/sdk/tree/master/pkg/front_end) に、FFI 用のカーネル変換を追加する必要がある
 👉 
 
-<!-- _footer: ([dart-lang lead engineer mraleph | introduction Dart VM](https://mrale.ph/dartvm/) より引用) -->
+<!-- _footer: ([dart-lang compiler engineer mraleph | Introduction to Dart VM](https://mrale.ph/dartvm/) より引用) -->
 
----
-<!-- _header: dart:ffi の実装て何が難しいの？ -->
-## [CFE](https://github.com/dart-lang/sdk/tree/master/pkg/front_end) レベルでの追加のカーネル変換, アナライザーレベルでのリンターとして、規則を適用しながら、Dart型システムへの独自の拡張を行う必要がある可能性があります。
 ---
 <!-- _header: dart:ffi の実装て何が難しいの？ -->
 # Dart からネイティブ型にアクセスする
