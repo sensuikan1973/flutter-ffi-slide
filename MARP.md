@@ -258,12 +258,8 @@ void isEmailAddress(Dart_NativeArguments arguments)
 #### ⇒ その点は FFI が優れている
 
 ---
-<!-- _header: FFI の実装が進んでいる背景 > Flutter における Dart->C をどう実現するか？ -->
-# Flutter/Dart チームが採った方法は？
----
-# dart : ffi 👍
+# そこで、dart : ffi 👍
 
-<br>
 <br>
 <br>
 
