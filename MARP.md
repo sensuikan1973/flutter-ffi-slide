@@ -309,6 +309,8 @@ void main() {
 ---
 <!-- _header: dart:ffi -->
 # どういう構成になるのか
+<!-- _footer: 参考: [dart-lang/sdk/samples/ffi/sqlite/docs/sqlite-tutorial.md](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md) -->
+
 ---
 <!-- _header: dart:ffi -->
 ![w:850](./assets/dart_ffi_architecture_without_c_glue_code.svg)
@@ -317,8 +319,6 @@ void main() {
 
 👉 Bindings: `final helloWorld = libHelloWorld.lookupFunction<ffi.Void Function(), void Function()>("helloWorld");` みたいなのを定義するレイヤーのこと
 </div>
-
-<!-- _footer: ([dart-lang/sdk/samples/ffi/sqlite/docs/sqlite-tutorial.md](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md) より引用) -->
 
 ---
 ## 課題をいくつか紹介
