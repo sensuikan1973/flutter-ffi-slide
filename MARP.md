@@ -273,6 +273,16 @@ void isEmailAddress(Dart_NativeArguments arguments)
 <!-- _footer: ([内部実装](https://github.com/dart-lang/sdk/tree/master/sdk/lib/ffi)) -->
 
 ---
+<!-- _header: 利用者目線の Flutter/Dart における FFI -->
+## [Google I/O'19](https://www.youtube.com/watch?v=J5DQRPRBiFI) でも言及あり
+![center](./assets/dart_session_io19.png)
+<b style="text-align:center">
+
+> We are working on a new foreign function interface.
+> This should help you reuse existing C and C++ code,
+> which is important for some critical stuff
+</b>
+---
 <!-- _header: 提供者目線の Flutter/Dart における FFI -->
 #### ちなみに
 > we expect that moving Flutter Engine from C API to FFI should significantly reduce overheads associated with crossing the boundary between Dart and native code
@@ -323,17 +333,6 @@ void main() {
 
 ---
 # 👍
----
-<!-- _header: 利用者目線の Flutter/Dart における FFI -->
-## [Google I/O'19](https://www.youtube.com/watch?v=J5DQRPRBiFI) でも言及あり
-![center](./assets/dart_session_io19.png)
-<b style="text-align:center">
-
-> We are working on a new foreign function interface.
-> This should help you reuse existing C and C++ code,
-> which is important for some critical stuff
-</b>
-
 ---
 # 意欲的な方は、<br>ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
 ---
