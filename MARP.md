@@ -342,8 +342,6 @@ void main() {
 <!-- _footer: ([dart-lang/sdk/samples/ffi/sqlite/docs/sqlite-tutorial.md](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md) より引用) -->
 
 ---
-# 👍
----
 # ぜひ [dart:ffi に FB](https://groups.google.com/forum/#!forum/dart-ffi) を送りましょう 👍
 
 <br>
@@ -361,11 +359,16 @@ void main() {
 ---
 <!-- _header: dart:ffi の実装て何が難しいの？ -->
 # 背景
-
 <br>
 
-
 ## 「補完してほしいし、静的解析もほしいなー」とみんな思う
+---
+![flutter_cfe](./assets/flutter-cfe.png)
+👉 [CFE](https://github.com/dart-lang/sdk/tree/master/pkg/front_end) に、FFI 用のカーネル変換を追加する必要がある
+👉 
+
+<!-- _footer: ([dart-lang lead engineer mraleph | introduction Dart VM](https://mrale.ph/dartvm/) より引用) -->
+
 ---
 <!-- _header: dart:ffi の実装て何が難しいの？ -->
 ## [CFE](https://github.com/dart-lang/sdk/tree/master/pkg/front_end) レベルでの追加のカーネル変換, アナライザーレベルでのリンターとして、規則を適用しながら、Dart型システムへの独自の拡張を行う必要がある可能性があります。
@@ -417,7 +420,3 @@ void main() {
 - [sensuikan1973/flutter-ffi-slide](https://github.com/sensuikan1973/flutter-ffi-slide)
 - [sensuikan1973/Dart_FFI_Hello_World](https://github.com/sensuikan1973/Dart_FFI_Hello_World)
 </div>
-
----
-## 設計の悩みとか話し合えると喜びます
-![center w:700](./assets/architecture.png)
