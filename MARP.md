@@ -50,6 +50,43 @@ theme: gaia
 ![center w:800](./assets/architecture_marked.png)
 
 ---
+<!-- _header: 自己紹介 -->
+```cc
+extern "C" void
+    JNICALL
+Java_com_done_sensuikan1973_othellode_LibEdax_nativeEdaxGetHintList(
+        JNIEnv *env,
+        jobject thiz,
+        jint hintNum,
+        jbooleanArray isBookMoveArray,
+        jintArray scoreArray,
+        jintArray bitPlaceArray
+        )
+{
+    auto hint_list = HintList();
+    edax_hint(hintNum, &hint_list);
+    jboolean *isBookMoveArrayPointer = env->GetBooleanArrayElements(isBookMoveArray, 0);
+    jint *scoreArrayPointer = env->GetIntArrayElements(scoreArray, 0);
+    jint *bitPlaceArrayPointer = env->GetIntArrayElements(bitPlaceArray, 0);
+    const int MAX_HINT_NUM = 34;
+    const int NOT_SEARCH_RESULT_BIT_PLACE = -1;
+    for (int i = 0; i < MAX_HINT_NUM; i++){
+        const auto hint = hint_list.hint[i];
+        isBookMoveArrayPointer[i] = hint.book_move;
+        scoreArrayPointer[i] = hint.score;
+        bitPlaceArrayPointer[i] = hint.move;
+        // 探索結果でない場合は bitPlace に -1 を入れて呼び出し側に伝える
+        if (hint.pv->n_moves == 0) {
+            bitPlaceArrayPointer[i] = NOT_SEARCH_RESULT_BIT_PLACE;
+        }
+    }
+    env->ReleaseBooleanArrayElements(isBookMoveArray, isBookMoveArrayPointer, 0);
+    env->ReleaseIntArrayElements(scoreArray, scoreArrayPointer, 0);
+    env->ReleaseIntArrayElements(bitPlaceArray, bitPlaceArrayPointer, 0);
+}
+```
+
+---
 <!-- _header: 前置き -->
 # 各言語の C 呼び出し
 ---
