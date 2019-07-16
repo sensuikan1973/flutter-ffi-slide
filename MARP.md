@@ -354,7 +354,7 @@ void main() {
 
 ---
 <!-- _header: dart:ffi -->
-### 4: 変更/削除時の HotReload 下での挙動は..?
+### 4: HotReload 下での callback の挙動は..?
 ![w:600](./assets/callbacks_hot_reload.png)
 ![w:650](./assets/flutter-cfe.png)
 
