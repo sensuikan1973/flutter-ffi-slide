@@ -50,6 +50,45 @@ theme: gaia
 ![center w:800](./assets/architecture_marked.png)
 
 ---
+<!-- _header: 自己紹介 -->
+### つらい...疲れた...重そう...
+
+```cc
+extern "C" void
+    JNICALL
+Java_com_done_sensuikan1973_othellode_LibEdax_nativeEdaxGetHintList(
+        JNIEnv *env,
+        jobject thiz,
+        jint hintNum,
+        jbooleanArray isBookMoveArray,
+        jintArray scoreArray,
+        jintArray bitPlaceArray
+        )
+{
+    auto hint_list = HintList();
+    edax_hint(hintNum, &hint_list);
+    jboolean *isBookMoveArrayPointer = env->GetBooleanArrayElements(isBookMoveArray, 0);
+    jint *scoreArrayPointer = env->GetIntArrayElements(scoreArray, 0);
+    jint *bitPlaceArrayPointer = env->GetIntArrayElements(bitPlaceArray, 0);
+    const int MAX_HINT_NUM = 34;
+    const int NOT_SEARCH_RESULT_BIT_PLACE = -1;
+    for (int i = 0; i < MAX_HINT_NUM; i++){
+        const auto hint = hint_list.hint[i];
+        isBookMoveArrayPointer[i] = hint.book_move;
+        scoreArrayPointer[i] = hint.score;
+        bitPlaceArrayPointer[i] = hint.move;
+        // 探索結果でない場合は bitPlace に -1 を入れて呼び出し側に伝える
+        if (hint.pv->n_moves == 0) {
+            bitPlaceArrayPointer[i] = NOT_SEARCH_RESULT_BIT_PLACE;
+        }
+    }
+    env->ReleaseBooleanArrayElements(isBookMoveArray, isBookMoveArrayPointer, 0);
+    env->ReleaseIntArrayElements(scoreArray, scoreArrayPointer, 0);
+    env->ReleaseIntArrayElements(bitPlaceArray, bitPlaceArrayPointer, 0);
+}
+```
+
+---
 <!-- _header: 前置き -->
 # 各言語の C 呼び出し
 ---
@@ -267,6 +306,9 @@ void isEmailAddress(Dart_NativeArguments arguments)
 <!-- _header: dart:ffi -->
 #### ちなみに
 > we expect that moving Flutter Engine from C API to FFI should significantly reduce overheads associated with crossing the boundary between Dart and native code
+
+<!-- _footer: ([Dart VM FFI Vision](https://gist.github.com/mraleph/2582b57737711da40262fad71215d62e) より引用)-->
+
 ---
 <!-- _header: dart:ffi -->
 # どう使えるのか？
@@ -346,12 +388,12 @@ void main() {
 ### 3: サポート対象のプラットフォーム
 
 待ちきれない人がスケジュールを聞く
-⇒ 具体的なスケジュールは示さないけど、近い将来その状態になるから待っていよう
+⇒ 具体的なスケジュールは示せない。待って。
 ![w:850](./assets/support_ios.png)
 
 ---
 <!-- _header: dart:ffi -->
-### 4: 変更/削除時の HotReload 下での挙動は..?
+### 4: HotReload 下での callback の挙動は..?
 ![w:600](./assets/callbacks_hot_reload.png)
 ![w:650](./assets/flutter-cfe.png)
 
